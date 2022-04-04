@@ -1,0 +1,40 @@
+@mixin flex($alignItem, $justifyContent) {
+  display: flex;
+  align-items: $alignItem;
+  justify-content: $justifyContent;
+}
+
+// // max-width = 1024px
+
+//small = 375px, meduim = 576px, large = 767px, x-large = 1024px, xx-large = 1200px / 1rem
+// min-width breakpoint
+
+$breakpoints-up: (
+  "small": "23.4375em",
+  "medium": "36em",
+  "large": "47.9375em",
+  "xlarge": "64em",
+  "xxlarge": "75em",
+);
+
+//xm =320px, small = 375px,  medium = 576px, large = 1024px,
+// max-width breakponit
+$breakpoints-down: (
+  "xs": "20em",
+  "small": "23.4375em",
+  "medium": "36em",
+  "large": "64em",
+);
+
+@mixin breakpoints-up($size) {
+  // map-get(key, value)
+  @media (min-width: map-get($breakpoints-up, $size)) {
+    @content;
+  }
+}
+
+@mixin breakpoints-down($size) {
+  @media (max-width: map-get($breakpoints-down, $size)) {
+    @content;
+  }
+}
