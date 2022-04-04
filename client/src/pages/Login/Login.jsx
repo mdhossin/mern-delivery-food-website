@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Spinner } from "react-bootstrap";
@@ -7,12 +7,12 @@ import { FcGoogle } from "react-icons/fc";
 import { isEmail, isEmpty } from "../../utils/validation";
 
 const Login = () => {
-  const navigate = useNavigate();
-  let location = useLocation();
+  // const navigate = useNavigate();
+  // let location = useLocation();
 
   const [newUser, setNewUser] = useState({ email: "", password: "" });
 
-  const redirect = location.state?.path || "/";
+  // const redirect = location.state?.path || "/";
 
   const { email, password } = newUser;
   // const [remember, setRemember] = useState(false);
