@@ -5,6 +5,10 @@ import {
   cuisinRightOne,
   cuisinRightThree,
   cuisinRightTwo,
+  whatSpecialFour,
+  whatSpecialOne,
+  whatSpecialThree,
+  whatSpecialTwo,
 } from "../assets";
 
 export const cuisinesDataLeft = [
@@ -45,5 +49,26 @@ export const cuisinesDataRight = [
     title: "Indian Cuisines",
     desc: "Semper feugiat nibh sed pulvinar proin gravida hendrerit lectus. Nec feugiat in fermentum posuere urna nec consequat semper.",
     img: cuisinRightThree,
+  },
+];
+
+export const whatSpecialData = [
+  {
+    id: 1,
+    title: "Pure Ingredients",
+    desc: "Vestibulum morbi blandit cursus risus at ultrices mi. Facilisis gravida neque convallis a.",
+    img: whatSpecialOne,
+  },
+  {
+    id: 2,
+    title: "Sustainability",
+    desc: "Laculis eu non diam phasellus. Dictum non consectetur a erat nam at. Quam adipiscing vitae proin sagittis.",
+    img: whatSpecialTwo,
+  },
+  {
+    id: 3,
+    title: "Environmentalism",
+    desc: "Bibendum est ultricies integer quis auctor elit sed. Accumsan tortor posuere ac ut consequat semper.",
+    img: whatSpecialThree,
   },
 ];

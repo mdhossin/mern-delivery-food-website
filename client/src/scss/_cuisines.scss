@@ -1,6 +1,7 @@
 @use "./utils/" as *;
 
 .cuisines-div {
+  font-family: "Raleway", sans-serif;
   @media screen and (max-width: 968px) {
     padding-top: 3rem !important;
   }

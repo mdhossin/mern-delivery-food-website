@@ -1,12 +1,18 @@
 import React from "react";
-import Banner from "../../components/Banner/Banner";
-import Cuisines from "../../components/Cuisines/Cuisines";
+import {
+  Banner,
+  Cuisines,
+  SimpleDelicious,
+  WhatSpecial,
+} from "../../components";
 
 const Home = () => {
   return (
     <div className="section">
       <Banner />
       <Cuisines />
+      <WhatSpecial />
+      <SimpleDelicious />
     </div>
   );
 };

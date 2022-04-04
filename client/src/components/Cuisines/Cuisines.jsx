@@ -1,7 +1,7 @@
 import React from "react";
-import { cuisinLeftOne, middleImg } from "../../assets";
+import { middleImg } from "../../assets";
 import { cuisinesDataLeft, cuisinesDataRight } from "../../utils/fakedata";
-import SectionTitle from "../SectionTitle.jsx/SectionTitle";
+import SectionTitle from "../SectionTitle/SectionTitle";
 
 const Cuisines = () => {
   return (

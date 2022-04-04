@@ -1,0 +1,60 @@
+@use "./utils/" as *;
+
+.special {
+  font-family: "Raleway", sans-serif;
+  @media screen and (min-width: 968px) {
+    padding: 0 4rem;
+  }
+  &__container {
+    @media screen and (min-width: 968px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    &__left {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &__right {
+      h2 {
+        font-size: 1.5rem;
+        color: #2c2c2c;
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+        text-align: center;
+        @include breakpoints-up("large") {
+          font-size: 2rem;
+        }
+      }
+      &__desc {
+        @include breakpoints-up("medium") {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        @media screen and (min-width: 968px) {
+          grid-template-columns: 1fr;
+        }
+
+        &__col {
+          text-align: center;
+          @media screen and (min-width: 968px) {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            text-align: start;
+          }
+
+          &-desc {
+            h4 {
+              color: #c00a27;
+              font-size: 1.5rem;
+            }
+
+            p {
+              color: #686464;
+            }
+          }
+        }
+      }
+    }
+  }
+}
