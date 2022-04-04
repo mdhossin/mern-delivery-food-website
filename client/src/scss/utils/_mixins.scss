@@ -25,6 +25,10 @@ $breakpoints-down: (
   "medium": "36em",
   "large": "64em",
 );
+// "xs": "20em",
+// "xm": "23.4375em", = small
+// "small": "36em", = medium
+// "medium": "64em", = large
 
 @mixin breakpoints-up($size) {
   // map-get(key, value)

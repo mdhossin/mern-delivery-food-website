@@ -1,9 +1,15 @@
+import { Routes } from "react-router-dom";
+import { Header } from "./components";
 import "./scss/styles.scss";
 
 function App() {
   return (
     <>
-      <h1>Hello world</h1>
+      <Header />
+
+      <main>
+        <Routes></Routes>
+      </main>
     </>
   );
 }
