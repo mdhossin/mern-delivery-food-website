@@ -132,6 +132,7 @@ const Header = () => {
                   <NavDropdown.Item
                     className="nav__dropdown__item"
                     onClick={() => {
+                      navigate("/register");
                       setMenuOpen(false);
                     }}
                     // onClick={() => navigate("/register")}
