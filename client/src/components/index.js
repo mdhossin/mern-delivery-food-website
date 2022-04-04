@@ -5,6 +5,8 @@ import Banner from "./Banner/Banner";
 import WhatSpecial from "./WhatSpecial/WhatSpecial";
 import SimpleDelicious from "./SimpleDelicious/SimpleDelicious";
 import Products from "./Products/Products";
+import NewsLetter from "./NewsLetter/NewsLetter";
+import OurClients from "./OurClients/OurClients";
 
 export {
   Header,
@@ -14,4 +16,6 @@ export {
   WhatSpecial,
   SimpleDelicious,
   Products,
+  NewsLetter,
+  OurClients,
 };

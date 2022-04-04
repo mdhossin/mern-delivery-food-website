@@ -1,4 +1,9 @@
 import {
+  brandFive,
+  brandFour,
+  brandOne,
+  brandThree,
+  brandTwo,
   cuisinLeftOne,
   cuisinLeftThree,
   cuisinLeftTwo,
@@ -132,5 +137,28 @@ export const productData = [
     price: 260,
     rating: 5,
     img: productSix,
+  },
+];
+
+export const brandData = [
+  {
+    id: 1,
+    img: brandOne,
+  },
+  {
+    id: 2,
+    img: brandTwo,
+  },
+  {
+    id: 3,
+    img: brandThree,
+  },
+  {
+    id: 4,
+    img: brandFour,
+  },
+  {
+    id: 5,
+    img: brandFive,
   },
 ];

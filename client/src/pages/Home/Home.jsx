@@ -2,6 +2,8 @@ import React from "react";
 import {
   Banner,
   Cuisines,
+  NewsLetter,
+  OurClients,
   Products,
   SimpleDelicious,
   WhatSpecial,
@@ -15,6 +17,8 @@ const Home = () => {
       <WhatSpecial />
       <SimpleDelicious />
       <Products />
+      <NewsLetter />
+      <OurClients />
     </div>
   );
 };

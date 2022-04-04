@@ -22,6 +22,12 @@ import productSix from "./products/product-6.webp";
 import productSeven from "./products/product-7.webp";
 import productEight from "./products/product-8.webp";
 
+import brandOne from "./brands/brands-1.webp";
+import brandTwo from "./brands/brands-2.webp";
+import brandThree from "./brands/brands-3.webp";
+import brandFour from "./brands/brands-4.webp";
+import brandFive from "./brands/brands-5.webp";
+
 export {
   cuisinLeftOne,
   cuisinLeftThree,
@@ -43,4 +49,9 @@ export {
   productThree,
   productTwo,
   productOne,
+  brandFive,
+  brandFour,
+  brandThree,
+  brandTwo,
+  brandOne,
 };

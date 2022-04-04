@@ -1,0 +1,60 @@
+@use "./utils/" as *;
+
+.news {
+  height: 100vh;
+  background: url("../assets/images/news.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 100%;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__overlay {
+    position: absolute;
+    content: "";
+    background: rgba(5, 4, 4, 0.171);
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+  }
+
+  &__content {
+    width: 500px;
+    z-index: 10;
+    text-align: center;
+    display: flex;
+    align-items: center;
+
+    @include breakpoints-down("medium") {
+      width: 100%;
+    }
+
+    input {
+      height: 50px;
+
+      background: #f7f7f7;
+      display: block;
+
+      width: 100%;
+      border: 0;
+      font-size: 15px;
+      color: #222;
+      padding: 0 20px;
+      margin-bottom: 18px;
+      transition: all 0.2s linear;
+      flex: 2;
+      margin-bottom: 0;
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+    }
+    .button {
+      flex: 1;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+    }
+  }
+}
