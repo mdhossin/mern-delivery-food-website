@@ -4,13 +4,14 @@ import { CgMenuRight } from "react-icons/cg";
 
 import { MdRestaurantMenu } from "react-icons/md";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { NavDropdown } from "react-bootstrap";
 import logo from "../../assets/images/logo.jpg";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const headerRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const shrinkHeader = () => {
@@ -122,6 +123,7 @@ const Header = () => {
                     className="nav__dropdown__item"
                     // onClick={() => navigate("/login")}
                     onClick={() => {
+                      navigate("/login");
                       setMenuOpen(false);
                     }}
                   >
