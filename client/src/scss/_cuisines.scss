@@ -1,0 +1,57 @@
+@use "./utils/" as *;
+
+.cuisines-div {
+  @media screen and (max-width: 968px) {
+    padding-top: 3rem !important;
+  }
+  @media screen and (max-width: 767px) {
+    padding-top: 1rem !important;
+  }
+}
+
+.cuisines {
+  grid-template-columns: repeat(3, 1fr);
+
+  @media screen and (max-width: 767px) {
+    grid-template-columns: 1fr;
+  }
+  &__left {
+    @media screen and (max-width: 767px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include breakpoints-down("medium") {
+      grid-template-columns: 1fr;
+    }
+    &__col {
+      display: grid;
+      align-items: center;
+
+      &-desc {
+        text-align: center;
+        p {
+          font-size: 15px;
+        }
+      }
+
+      &-img {
+        margin-bottom: 1.2rem;
+        justify-self: center;
+      }
+    }
+  }
+
+  &__middle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__right {
+    @media screen and (max-width: 767px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include breakpoints-down("medium") {
+      grid-template-columns: 1fr;
+    }
+  }
+}

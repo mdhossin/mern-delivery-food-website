@@ -31,12 +31,10 @@
       margin-left: 1.5rem;
       margin-right: 1.5rem;
 
-      @include breakpoints-up("medium") {
-        font-size: 3rem;
-      }
-
       @include breakpoints-up("xlarge") {
         font-size: 4rem;
+        margin-left: 0rem;
+        margin-right: 0rem;
       }
     }
 
@@ -62,8 +60,15 @@
     }
   }
 }
+
+// override bootstrap style
 .carousel-inner {
-  height: 100vh;
+  @include breakpoints-up("xxlarge") {
+    height: 100vh;
+  }
+  @include breakpoints-down("large") {
+    height: 60vh;
+  }
 
   .carousel-caption {
     top: 15%;
@@ -77,16 +82,22 @@
       top: 20%;
     }
   }
-
-  .carousel-control-prev {
-    top: 8%;
-  }
 }
 
+.carousel-control-prev,
+.carousel-control-next {
+  @media screen and (max-width: 968px) {
+    top: -15% !important;
+  }
+}
 .carousel-item {
   img {
     @media screen and (max-width: 767px) {
-      height: 70vh !important;
+      height: 50vh !important;
     }
   }
+}
+
+.carousel-indicators {
+  display: none;
 }
