@@ -2,6 +2,7 @@ import React from "react";
 import {
   Banner,
   Cuisines,
+  Products,
   SimpleDelicious,
   WhatSpecial,
 } from "../../components";
@@ -13,6 +14,7 @@ const Home = () => {
       <Cuisines />
       <WhatSpecial />
       <SimpleDelicious />
+      <Products />
     </div>
   );
 };

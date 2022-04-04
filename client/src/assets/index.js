@@ -12,6 +12,16 @@ import whatSpecialOne from "./cuisines/what-special-1.webp";
 import whatSpecialTwo from "./cuisines/what-special-2.webp";
 import whatSpecialThree from "./cuisines/what-special-3.webp";
 import whatSpecialFour from "./cuisines/what-special-4.webp";
+
+import productOne from "./products/product-1.webp";
+import productTwo from "./products/product-2.webp";
+import productThree from "./products/product-3.webp";
+import productFour from "./products/product-4.webp";
+import productFive from "./products/product-5.webp";
+import productSix from "./products/product-6.webp";
+import productSeven from "./products/product-7.webp";
+import productEight from "./products/product-8.webp";
+
 export {
   cuisinLeftOne,
   cuisinLeftThree,
@@ -25,4 +35,12 @@ export {
   whatSpecialThree,
   whatSpecialTwo,
   whatSpecialFour,
+  productEight,
+  productSeven,
+  productSix,
+  productFive,
+  productFour,
+  productThree,
+  productTwo,
+  productOne,
 };

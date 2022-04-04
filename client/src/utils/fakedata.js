@@ -5,7 +5,12 @@ import {
   cuisinRightOne,
   cuisinRightThree,
   cuisinRightTwo,
-  whatSpecialFour,
+  productFive,
+  productFour,
+  productOne,
+  productSix,
+  productThree,
+  productTwo,
   whatSpecialOne,
   whatSpecialThree,
   whatSpecialTwo,
@@ -70,5 +75,62 @@ export const whatSpecialData = [
     title: "Environmentalism",
     desc: "Bibendum est ultricies integer quis auctor elit sed. Accumsan tortor posuere ac ut consequat semper.",
     img: whatSpecialThree,
+  },
+];
+
+export const productData = [
+  {
+    id: 1,
+    name: "English Breakfast",
+    description:
+      "Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut risus. Sedcus faucibus an sullamcorper mattis drostique des commodo pharetras...",
+    price: 286,
+    rating: 5,
+    img: productOne,
+  },
+  {
+    id: 2,
+    name: "Buldak",
+    description:
+      "Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut risus. Sedcus faucibus an sullamcorper mattis drostique des commodo pharetras...",
+    price: 350,
+    rating: 4,
+    img: productTwo,
+  },
+  {
+    id: 3,
+    name: "Creamed Chipped Beef",
+    description:
+      "Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut risus. Sedcus faucibus an sullamcorper mattis drostique des commodo pharetras...",
+    price: 399,
+    rating: 3,
+    img: productThree,
+  },
+  {
+    id: 4,
+    name: "Spaghetti Aglio",
+    description:
+      "Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut risus. Sedcus faucibus an sullamcorper mattis drostique des commodo pharetras...",
+    price: 399,
+    rating: 5,
+    img: productFour,
+  },
+  {
+    id: 5,
+    name: "Beef Steaks",
+    description:
+      "Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut risus. Sedcus faucibus an sullamcorper mattis drostique des commodo pharetras...",
+    price: 220,
+    rating: 4,
+    img: productFive,
+  },
+  {
+    id: 6,
+    name: "Galouti Kebab",
+    description:
+      "Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut risus. Sedcus faucibus an sullamcorper mattis drostique des commodo pharetras...",
+    price: 260,
+    rating: 5,
+    img: productSix,
   },
 ];
