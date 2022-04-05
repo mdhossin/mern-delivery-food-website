@@ -23,3 +23,11 @@
 @use "./not-found";
 
 @use "./add-product";
+@use "./loading";
+
+@use "./product-detail";
+
+// user dashboard
+
+@use "./sidebar";
+@use "./welcome";

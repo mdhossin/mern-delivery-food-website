@@ -1,0 +1,77 @@
+@use "./utils/" as *;
+
+.product {
+  margin-top: 7rem;
+  &__detail {
+    @include breakpoints-up("large") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    &__img {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 280px;
+      }
+    }
+
+    &__info {
+      &-name {
+        font-size: 26px;
+        margin: 1rem 0 0.5rem 0;
+        color: #2c2c2c;
+        font-weight: 600;
+      }
+
+      &-rating {
+        margin-bottom: 1rem;
+      }
+
+      &-stock {
+        p {
+          font-size: 1rem;
+          margin-bottom: 1rem;
+          font-weight: 400;
+        }
+      }
+
+      &__price {
+        &-count {
+          display: block;
+          font-size: 22px;
+          color: var(--main-color);
+          margin-bottom: 1rem;
+          font-weight: 500;
+        }
+      }
+
+      &-desc {
+        margin: 1rem 0;
+
+        p {
+          font-size: 16px;
+        }
+      }
+
+      &-btn {
+        button {
+          background: var(--main-color);
+          height: 50px;
+          line-height: 50px;
+          width: 200px;
+          // padding: 0 50px;
+          font-size: 16px;
+          color: #fff;
+
+          display: block;
+
+          transition: all 0.5s ease;
+
+          &:hover {
+            background: rgb(165, 5, 29);
+          }
+        }
+      }
+    }
+  }
+}

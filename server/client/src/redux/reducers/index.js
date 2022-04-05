@@ -1,8 +1,15 @@
 import { combineReducers } from "redux";
-// import { createProductReducer } from "./productReduers";
+import {
+  createProductReducer,
+  productByIdReducer,
+  productReducer,
+} from "./productReducer";
+
 import { userReducer } from "./userReducer";
 
 export default combineReducers({
   user: userReducer,
-  //   createProduct: createProductReducer,
+  createProduct: createProductReducer,
+  allProducts: productReducer,
+  productById: productByIdReducer,
 });

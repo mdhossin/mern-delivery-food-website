@@ -85,13 +85,12 @@ export const whatSpecialData = [
 
 export const productData = [
   {
-    id: 1,
     name: "English Breakfast",
     description:
       "Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut risus. Sedcus faucibus an sullamcorper mattis drostique des commodo pharetras...",
     price: 286,
     rating: 5,
-    img: productOne,
+    images: productOne,
   },
   {
     id: 2,

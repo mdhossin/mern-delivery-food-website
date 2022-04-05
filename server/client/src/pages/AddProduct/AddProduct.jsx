@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { toast } from "react-toastify";
-import { createProduct } from "../../redux/actions/productAction";
+import { createProduct } from "../../redux/actions/productActions";
 import { CREATE_PRODUCT_RESET } from "../../redux/constants/productConstants";
 
 const initialstate = {
@@ -16,7 +16,7 @@ const initialstate = {
   description: "",
   stock: 0,
 };
-const AddNewTour = () => {
+const AddProduct = () => {
   const navigate = useNavigate();
 
   const [product, setProduct] = useState(initialstate);
@@ -24,7 +24,7 @@ const AddNewTour = () => {
   const dispatch = useDispatch();
 
   // const token = useSelector((state) => state.userLogin.userInfo.access_token);
-  const { products, error } = useSelector((state) => state.createProduct);
+  const { products, error } = useSelector((state) => state?.createProduct);
   // const productData = useSelector((state) => state.adminProducts);
 
   console.log(products, "create add product");
@@ -37,23 +37,6 @@ const AddNewTour = () => {
   const [uploadSuccess, setUploadSuccess] = useState("");
 
   const [isLoading, setIsLoading] = useState(false);
-
-  // useEffect(() => {
-  //   if (productId) {
-  //     setOnEdit(true);
-
-  //     productData?.products?.forEach((product) => {
-  //       if (product?._id === productId) {
-  //         setProduct(product);
-  //         setImages(product?.images);
-  //       }
-  //     });
-  //   } else {
-  //     setOnEdit(false);
-  //     setProduct(initialstate);
-  //     setImages(false);
-  //   }
-  // }, [productId, productData?.products]);
 
   // image upload here
   const handleUpload = async (e) => {
@@ -120,7 +103,7 @@ const AddNewTour = () => {
     e.preventDefault();
 
     // create product api call here
-    dispatch(createProduct({ ...product, images }, navigate));
+    dispatch(createProduct({ ...product, images }, navigate, toast));
   };
 
   // show the toast message error or succes
@@ -128,9 +111,9 @@ const AddNewTour = () => {
     if (error) {
       dispatch({ type: CREATE_PRODUCT_RESET });
       toast.error(error);
-    } else if (products) {
+    } else if (products?.message) {
       dispatch({ type: CREATE_PRODUCT_RESET });
-      toast.success(products.message);
+      toast.success(products?.message);
       // navigate(redirect);
     }
   }, [products, error, dispatch]);
@@ -152,7 +135,7 @@ const AddNewTour = () => {
 
   return (
     <section className="addproduct section container-div">
-      <h3 className="addproduct__title">Add Tour</h3>
+      <h3 className="addproduct__title">Add Product</h3>
       <div className="addproduct__container">
         <form className="addproduct__form  grid" onSubmit={handleSubmit}>
           <div className="addproduct__form__left">
@@ -243,11 +226,7 @@ const AddNewTour = () => {
           </div>
 
           <div className="addproduct__form__button">
-            <button
-              style={{ fontSize: "15px" }}
-              className="button-secondary"
-              type="submit"
-            >
+            <button style={{ fontSize: "15px" }} type="submit">
               Public Now
             </button>
           </div>
@@ -257,4 +236,4 @@ const AddNewTour = () => {
   );
 };
 
-export default AddNewTour;
+export default AddProduct;

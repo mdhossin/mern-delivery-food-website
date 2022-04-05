@@ -64,37 +64,16 @@ const Header = () => {
                 Home
               </Link>
             </li>
-            {currentUser?.email && (
-              <>
-                <li className="nav__item">
-                  <Link
-                    to="/myorders"
-                    onClick={() => setMenuOpen(false)}
-                    className="nav__link"
-                  >
-                    My Orders
-                  </Link>
-                </li>
-                <li className="nav__item">
-                  <Link
-                    to="/manageorder"
-                    onClick={() => setMenuOpen(false)}
-                    className="nav__link"
-                  >
-                    Manage All Orders
-                  </Link>
-                </li>
-                <li className="nav__item">
-                  <Link
-                    to="/addTour"
-                    onClick={() => setMenuOpen(false)}
-                    className="nav__link"
-                  >
-                    Add New Item
-                  </Link>
-                </li>
-              </>
-            )}
+            <li className="nav__item">
+              <Link
+                to="/shop"
+                className="nav__link"
+                onClick={() => setMenuOpen(false)}
+              >
+                Shop
+              </Link>
+            </li>
+
             <li className="nav__item">
               <Link
                 to="/contact"
@@ -125,9 +104,12 @@ const Header = () => {
                 <>
                   <NavDropdown.Item
                     className="nav__dropdown__item"
-                    // onClick={() => navigate("/dashboard")}
+                    onClick={() => {
+                      navigate("/dashboard");
+                      setMenuOpen(false);
+                    }}
                   >
-                    Profile
+                    Dashboard
                   </NavDropdown.Item>
                   <NavDropdown.Item
                     className="nav__dropdown__item"

@@ -40,42 +40,31 @@ const productController = {
       return res.status(500).json({ message: "Server Error." });
     }
   },
-  //   async deleteProducts(req, res, next) {
-  //     try {
-  //       try {
-  //         await Product.findByIdAndDelete(req.params.id);
-  //         res.json({ message: "Deleted a Product" });
-  //       } catch (err) {
-  //         return next(err);
-  //       }
-  //     } catch (err) {
-  //       return next(err);
-  //     }
-  //   },
-  //   async updateProducts(req, res, next) {
-  //     try {
-  //       const { title, price, description, content, images, category } = req.body;
-  //       if (!images) {
-  //         return next(CustomErrorHandler.badRequest("No image upload"));
-  //       }
+  async getAllProducts(req, res) {
+    let products;
+    try {
+      products = await Product.find()
+        .select("-updatedAt -__v")
+        .sort({ _id: -1 });
+    } catch (err) {
+      return res.status(500).json({ message: "Server Error" });
+    }
 
-  //       await Product.findOneAndUpdate(
-  //         { _id: req.params.id },
-  //         {
-  //           title: title.toLowerCase(),
-  //           price,
-  //           description,
-  //           content,
-  //           images,
-  //           category,
-  //         }
-  //       );
+    res.json(products);
+  },
 
-  //       res.json({ message: "Updated a Product" });
-  //     } catch (err) {
-  //       return next(err);
-  //     }
-  //   },
+  async getByIdProduct(req, res, next) {
+    let product;
+    try {
+      product = await Product.findOne({ _id: req.params.id }).select(
+        "-updatedAt -__v"
+      );
+    } catch (err) {
+      return res.status(500).json({ message: "Server Error" });
+    }
+
+    res.json(product);
+  },
 };
 
 module.exports = productController;
