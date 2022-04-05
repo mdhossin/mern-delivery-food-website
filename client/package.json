@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@redux-devtools/extension": "^3.2.2",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
@@ -13,8 +14,12 @@
     "react-bootstrap": "^2.2.2",
     "react-dom": "^18.0.0",
     "react-icons": "^4.3.1",
+    "react-redux": "^7.2.8",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.0",
+    "react-toastify": "^8.2.0",
+    "redux": "^4.1.2",
+    "redux-thunk": "^2.4.1",
     "sass": "^1.49.11",
     "web-vitals": "^2.1.4"
   },

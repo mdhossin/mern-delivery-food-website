@@ -1,14 +1,19 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Spinner } from "react-bootstrap";
 import { validRegister } from "../../utils/validation";
+import { register } from "../../redux/actions/userActions";
+import { toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+import { USER_RESET } from "../../redux/constants/userConstants";
 
 const Register = () => {
-  // const navigate = useNavigate();
-  // let location = useLocation();
+  const navigate = useNavigate();
+  let location = useLocation();
 
+  const dispatch = useDispatch();
   const [newUser, setNewUser] = useState({
     email: "",
     password: "",
@@ -16,7 +21,10 @@ const Register = () => {
     cf_password: "",
   });
 
-  // const redirect = location.state?.path || "/";
+  const { currentUser, loading, error } = useSelector((state) => state.user);
+  console.log(currentUser, "register");
+
+  const redirect = location.state?.path || "/";
 
   const { name, email, password, cf_password } = newUser;
 
@@ -31,7 +39,29 @@ const Register = () => {
     e.preventDefault();
     const result = validRegister(newUser);
     console.log(result);
+    if (result?.errLength) {
+      return toast.error(result?.errMsg[0]);
+    }
+
+    dispatch(register(email, password, name));
+
+    setNewUser({
+      email: "",
+      password: "",
+      name: "",
+      cf_password: "",
+    });
   };
+
+  useEffect(() => {
+    if (error) {
+      toast.error(error);
+      dispatch({ type: USER_RESET });
+    } else if (currentUser) {
+      toast.success("Register Successfull.");
+      navigate(redirect, { replace: true });
+    }
+  }, [navigate, redirect, currentUser, error, dispatch]);
 
   return (
     <section className="section">
@@ -106,7 +136,7 @@ const Register = () => {
               type="submit"
               disabled={email && password ? false : true}
             >
-              {false ? <Spinner animation="border" size="sm" /> : "Register"}
+              {loading ? <Spinner animation="border" size="sm" /> : "Register"}
             </button>
             <div
               className="contact__form__forgot"
