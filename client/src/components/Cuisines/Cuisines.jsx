@@ -2,6 +2,7 @@ import React from "react";
 import { middleImg } from "../../assets";
 import { cuisinesDataLeft, cuisinesDataRight } from "../../utils/fakedata";
 import SectionTitle from "../SectionTitle/SectionTitle";
+import { motion } from "framer-motion";
 
 const Cuisines = () => {
   return (
@@ -12,9 +13,14 @@ const Cuisines = () => {
       />
 
       <div className="cuisines grid">
-        <div className="cuisines__left grid">
+        <motion.div className="cuisines__left grid">
           {cuisinesDataLeft.map(({ title, id, desc, img }) => (
-            <div key={id} className="cuisines__left__col">
+            <motion.div
+              whileInView={{ opacity: [0, 1] }}
+              transition={{ duration: 0.5 }}
+              key={id}
+              className="cuisines__left__col"
+            >
               <div className="cuisines__left__col-img">
                 <img src={img} alt="" />
               </div>
@@ -22,15 +28,25 @@ const Cuisines = () => {
                 <h4>{title}</h4>
                 <p>{desc}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
-        <div className="cuisines__middle">
-          <img src={middleImg} alt="" />
-        </div>
-        <div className="cuisines__right grid">
+        </motion.div>
+        <motion.div className="cuisines__middle">
+          <motion.div
+            whileInView={{ opacity: [0, 1] }}
+            transition={{ duration: 2 }}
+          >
+            <img src={middleImg} alt="" />
+          </motion.div>
+        </motion.div>
+        <motion.div className="cuisines__right grid">
           {cuisinesDataRight.map(({ title, id, desc, img }) => (
-            <div key={id} className="cuisines__left__col">
+            <motion.div
+              whileInView={{ opacity: [0, 1] }}
+              transition={{ duration: 0.5 }}
+              key={id}
+              className="cuisines__left__col"
+            >
               <div className="cuisines__left__col-img">
                 <img src={img} alt="" />
               </div>
@@ -38,9 +54,9 @@ const Cuisines = () => {
                 <h4>{title}</h4>
                 <p>{desc}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
