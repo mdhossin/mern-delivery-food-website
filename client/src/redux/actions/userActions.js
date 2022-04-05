@@ -49,71 +49,71 @@ export const register = (email, password, name) => async (dispatch) => {
     });
   }
 };
-// export const login = (email, password) => async (dispatch) => {
-//   try {
-//     dispatch({
-//       type: USER_LOGIN_REQUEST,
-//     });
+export const login = (email, password) => async (dispatch) => {
+  try {
+    dispatch({
+      type: USER_LOGIN_REQUEST,
+    });
 
-//     const res = await signInWithEmailAndPassword(auth, email, password);
+    const res = await signInWithEmailAndPassword(auth, email, password);
 
-//     dispatch({
-//       type: USER_LOGIN_SUCCESS,
-//       payload: res.user,
-//     });
-//   } catch (error) {
-//     dispatch({
-//       type: USER_LOGIN_FAIL,
-//       payload:
-//         error.response && error.response.data.message
-//           ? error.response.data.message
-//           : error.message,
-//     });
-//   }
-// };
-// export const logOut = () => async (dispatch) => {
-//   try {
-//     dispatch({
-//       type: USER_LOGOUT_REQUEST,
-//     });
+    dispatch({
+      type: USER_LOGIN_SUCCESS,
+      payload: res.user,
+    });
+  } catch (error) {
+    dispatch({
+      type: USER_LOGIN_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+export const logOut = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: USER_LOGOUT_REQUEST,
+    });
 
-//     const res = await signOut(auth);
-//     console.log(res, "logut action");
+    const res = await signOut(auth);
+    console.log(res, "logut action");
 
-//     dispatch({
-//       type: USER_LOGOUT_SUCCESS,
-//       //   payload: res.user,
-//     });
-//   } catch (error) {
-//     dispatch({
-//       type: USER_LOGOUT_FAIL,
-//       payload:
-//         error.response && error.response.data.message
-//           ? error.response.data.message
-//           : error.message,
-//     });
-//   }
-// };
+    dispatch({
+      type: USER_LOGOUT_SUCCESS,
+      //   payload: res.user,
+    });
+  } catch (error) {
+    dispatch({
+      type: USER_LOGOUT_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
 
-// export const googleSignin = () => async (dispatch) => {
-//   try {
-//     dispatch({
-//       type: USER_GOOGLE_SIGN_IN_REQUEST,
-//     });
+export const googleSignin = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: USER_GOOGLE_SIGN_IN_REQUEST,
+    });
 
-//     const res = await signInWithPopup(auth, provierGoogle);
+    const res = await signInWithPopup(auth, provierGoogle);
 
-//     dispatch({
-//       type: USER_GOOGLE_SIGN_IN_SUCCESS,
-//       payload: res.user,
-//     });
-//   } catch (error) {
-//     dispatch({
-//       type: USER_GOOGLE_SIGN_IN_FAIL,
-//       payload:
-//         error.response && error.response.data.message
-//           ? error.response.data.message
-//           : error.message,
-//     });
-//   }
-// };
+    dispatch({
+      type: USER_GOOGLE_SIGN_IN_SUCCESS,
+      payload: res.user,
+    });
+  } catch (error) {
+    dispatch({
+      type: USER_GOOGLE_SIGN_IN_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};

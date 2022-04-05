@@ -7,11 +7,19 @@ import { MdRestaurantMenu } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import { NavDropdown } from "react-bootstrap";
 import logo from "../../assets/images/logo.jpg";
+import { useDispatch, useSelector } from "react-redux";
+import { logOut } from "../../redux/actions/userActions";
+import person from "../../assets/images/person.png";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const headerRef = useRef(null);
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+
+  const { currentUser } = useSelector((state) => state.user);
+  console.log(currentUser?.photoURL);
 
   useEffect(() => {
     const shrinkHeader = () => {
@@ -29,6 +37,14 @@ const Header = () => {
       window.removeEventListener("scroll", shrinkHeader);
     };
   }, []);
+
+  const handleLogOut = () => {
+    if (currentUser) {
+      dispatch(logOut());
+      setMenuOpen(false);
+    }
+    navigate("/");
+  };
 
   return (
     <header ref={headerRef} className="header">
@@ -48,7 +64,7 @@ const Header = () => {
                 Home
               </Link>
             </li>
-            {false && (
+            {currentUser?.email && (
               <>
                 <li className="nav__item">
                   <Link
@@ -91,12 +107,12 @@ const Header = () => {
 
             <NavDropdown
               title={
-                false ? (
+                currentUser ? (
                   <img
                     style={{ borderRadius: "50%" }}
                     width="22"
                     height="22"
-                    src=""
+                    src={currentUser?.photoURL ? currentUser?.photoURL : person}
                     alt="user"
                   />
                 ) : (
@@ -105,7 +121,7 @@ const Header = () => {
               }
               id="collasible-nav-dropdown"
             >
-              {false ? (
+              {currentUser ? (
                 <>
                   <NavDropdown.Item
                     className="nav__dropdown__item"
@@ -113,7 +129,10 @@ const Header = () => {
                   >
                     Profile
                   </NavDropdown.Item>
-                  <NavDropdown.Item className="nav__dropdown__item">
+                  <NavDropdown.Item
+                    className="nav__dropdown__item"
+                    onClick={handleLogOut}
+                  >
                     Logout
                   </NavDropdown.Item>
                 </>

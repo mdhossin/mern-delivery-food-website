@@ -1,18 +1,26 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Spinner } from "react-bootstrap";
 import { FcGoogle } from "react-icons/fc";
 import { isEmail, isEmpty } from "../../utils/validation";
+import { toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+import { googleSignin, login } from "../../redux/actions/userActions";
+import { USER_RESET } from "../../redux/constants/userConstants";
 
 const Login = () => {
-  // const navigate = useNavigate();
-  // let location = useLocation();
+  const navigate = useNavigate();
+  let location = useLocation();
+  const dispatch = useDispatch();
 
   const [newUser, setNewUser] = useState({ email: "", password: "" });
 
-  // const redirect = location.state?.path || "/";
+  const { currentUser, loading, error } = useSelector((state) => state.user);
+  console.log(currentUser);
+
+  const redirect = location.state?.path || "/";
 
   const { email, password } = newUser;
   // const [remember, setRemember] = useState(false);
@@ -25,16 +33,32 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(newUser);
+    console.log(newUser);
     if (isEmpty(email) || isEmpty(password)) {
+      toast.error("Please fill up all fields.");
       return;
     }
     if (!isEmail(email)) {
-      return;
+      return toast.error("Email must be a valid Email.");
     }
+
+    dispatch(login(email, password));
+    setNewUser({ email: "", password: "" });
   };
 
-  const handleGoogleLogin = () => {};
+  const handleGoogleLogin = () => {
+    dispatch(googleSignin());
+  };
+
+  useEffect(() => {
+    if (error) {
+      toast.error(error);
+      dispatch({ type: USER_RESET });
+    } else if (currentUser) {
+      toast.success("Login Successfull.");
+      navigate(redirect, { replace: true });
+    }
+  }, [navigate, redirect, currentUser, error, dispatch]);
 
   return (
     <section className="section">
@@ -84,7 +108,7 @@ const Login = () => {
               type="submit"
               // disabled={email && password ? false : true}
             >
-              {false ? <Spinner animation="border" size="sm" /> : "Login"}
+              {loading ? <Spinner animation="border" size="sm" /> : "Login"}
             </button>
             <div>
               <p style={{ textAlign: "center", fontWeight: "700" }}>Or</p>
