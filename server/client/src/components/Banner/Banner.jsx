@@ -8,18 +8,17 @@ const Banner = () => {
   const bannerData = [
     {
       id: 1,
+      imgPath: sliderTwo,
+      title: "Eat Dish @ Great Price  ",
+      desc: "Home Made Dish On Your Doorstep",
+      discount: "10 - 15% OFF",
+    },
+    {
+      id: 2,
       imgPath: sliderOne,
       title: "Tasty Bites Healthy Foods",
       desc: "Mega Discounts On",
       discount: "10 - 50% OFF",
-    },
-
-    {
-      id: 2,
-      imgPath: sliderTwo,
-      title: "eat Dish @ Great Price  ",
-      desc: "Home Made Dish On Your Doorstep",
-      discount: "10 - 15% OFF",
     },
   ];
 

@@ -16,7 +16,7 @@ const Products = () => {
         transition={{ duration: 0.5, delayChildren: 0.5 }}
         className="products__items grid"
       >
-        {productData.map(({ id, name, img, description, rating, price }) => (
+        {productData.map(({ id, name, img, rating, price }) => (
           <motion.div
             whileInView={{ opacity: [0, 1] }}
             transition={{ duration: 0.5 }}
@@ -24,6 +24,12 @@ const Products = () => {
             className="products__items__item"
           >
             <img src={img} alt="" />
+            <div className="products__items__item__buttons">
+              <div>
+                <button>Order Now</button>
+                <button>View Details</button>
+              </div>
+            </div>
             <div className="products__items__item__content">
               <h2>{name}</h2>
               <ProductRating ratingValue={rating} />

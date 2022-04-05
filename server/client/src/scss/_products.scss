@@ -13,6 +13,13 @@
       width: 260px;
       margin: 0 auto;
       transition: all 0.5s ease;
+      position: relative;
+
+      &:hover &__buttons {
+        opacity: 1;
+        bottom: 40%;
+      }
+
       &:hover {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.07);
       }
@@ -26,6 +33,42 @@
 
       @include breakpoints-up("large") {
         width: 100%;
+      }
+
+      &__buttons {
+        position: absolute;
+
+        // bottom: 0;
+        z-index: 100;
+        width: 80%;
+        right: 10%;
+        bottom: 45%;
+        opacity: 0;
+        transition: all 0.5s ease;
+
+        div {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          button {
+            background: var(--main-color);
+            height: 50px;
+            line-height: 50px;
+            width: 100%;
+            // padding: 0 50px;
+            font-size: 16px;
+            color: #fff;
+
+            display: block;
+
+            transition: all 0.5s ease;
+
+            &:hover {
+              background: rgb(165, 5, 29);
+            }
+          }
+        }
       }
 
       img {
