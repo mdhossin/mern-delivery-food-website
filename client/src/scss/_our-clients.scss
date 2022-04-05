@@ -1,6 +1,7 @@
 @use "./utils/" as *;
 
 .clients {
+  margin-bottom: 5rem;
   &__brands {
     justify-content: center;
 

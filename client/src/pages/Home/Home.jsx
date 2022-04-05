@@ -8,10 +8,11 @@ import {
   SimpleDelicious,
   WhatSpecial,
 } from "../../components";
+import Footer from "../../components/Footer/Footer";
 
 const Home = () => {
   return (
-    <div className="section">
+    <div style={{ marginTop: "5rem" }}>
       <Banner />
       <Cuisines />
       <WhatSpecial />
@@ -19,6 +20,7 @@ const Home = () => {
       <Products />
       <NewsLetter />
       <OurClients />
+      <Footer />
     </div>
   );
 };
