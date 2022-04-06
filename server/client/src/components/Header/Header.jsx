@@ -87,6 +87,7 @@ const Header = () => {
               title={
                 currentUser ? (
                   <img
+                    title={currentUser.name}
                     style={{ borderRadius: "50%" }}
                     width="22"
                     height="22"
