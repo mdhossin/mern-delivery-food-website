@@ -9,6 +9,7 @@ import { Table } from "react-bootstrap";
 import Loading from "../../../components/Loading/Loading";
 import { FaTrashAlt } from "react-icons/fa";
 import { toast } from "react-toastify";
+import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 
 const MyOrders = () => {
   const { currentUser } = useSelector((state) => state.user);
@@ -29,8 +30,8 @@ const MyOrders = () => {
   };
 
   return (
-    <section className="section myorders">
-      <h2>My Orders</h2>
+    <section className="section myorders container-div">
+      <SectionTitle title="My Orders" />
       <div>
         <Table responsive="sm">
           <thead>

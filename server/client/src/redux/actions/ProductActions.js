@@ -25,7 +25,11 @@ export const createProduct = (product, navigate, toast) => async (dispatch) => {
       },
     };
 
-    const { data } = await axios.post("/api/products", product, config);
+    const { data } = await axios.post(
+      "https://yummy-food-delivery.herokuapp.com/api/products",
+      product,
+      config
+    );
 
     dispatch({
       type: CREATE_PRODUCT_SUCCESS,
@@ -51,7 +55,9 @@ export const getAllProduct = () => async (dispatch) => {
   try {
     dispatch({ type: ALL_PRODUCTS_LOADING });
 
-    const { data } = await axios.get("/api/products");
+    const { data } = await axios.get(
+      "https://yummy-food-delivery.herokuapp.com/api/products"
+    );
 
     dispatch({
       type: ALL_PRODUCTS_SUCCESS,
@@ -75,7 +81,9 @@ export const getProductById = (id) => async (dispatch) => {
       type: PRODUCT_BY_ID_REQUEST,
     });
 
-    const { data } = await axios.get(`/api/products/${id}`);
+    const { data } = await axios.get(
+      `https://yummy-food-delivery.herokuapp.com/api/products/${id}`
+    );
 
     dispatch({
       type: PRODUCT_BY_ID_SUCCESS,
