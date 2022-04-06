@@ -19,7 +19,6 @@ const Header = () => {
   const dispatch = useDispatch();
 
   const { currentUser } = useSelector((state) => state.user);
-  console.log(currentUser?.photoURL);
 
   useEffect(() => {
     const shrinkHeader = () => {
@@ -70,7 +69,7 @@ const Header = () => {
                 className="nav__link"
                 onClick={() => setMenuOpen(false)}
               >
-                Shop
+                Products
               </Link>
             </li>
 

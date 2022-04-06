@@ -1,0 +1,25 @@
+@use "./utils/" as *;
+
+.shipping {
+  padding-top: 7rem;
+
+  h3 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  &__form {
+    gap: 0 !important;
+
+    @include breakpoints-up("large") {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem !important;
+    }
+
+    &__right {
+      .btn {
+        margin-top: 1.2rem;
+      }
+    }
+  }
+}

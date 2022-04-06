@@ -14,10 +14,6 @@ const productController = {
           .json({ message: "You must enter description & name." });
       }
 
-      if (!stock) {
-        return res.status(400).json({ message: "You must enter stock." });
-      }
-
       if (!price) {
         return res.status(400).json({ message: "You must enter a price." });
       }

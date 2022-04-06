@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
 
-import ProductRating from "../ProductRating/ProductRating";
-import SectionTitle from "../SectionTitle/SectionTitle";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllProduct } from "../../redux/actions/productActions";
 
-import Loading from "../Loading/Loading";
 import { Link } from "react-router-dom";
-
-const Products = () => {
+import { getAllProduct } from "../../redux/actions/productActions";
+import { SectionTitle } from "../../components";
+import Loading from "../../components/Loading/Loading";
+import ProductRating from "../../components/ProductRating/ProductRating";
+import Footer from "../../components/Footer/Footer";
+const Shop = () => {
   const dispatch = useDispatch();
   const { products, loading, error } = useSelector(
     (state) => state.allProducts
@@ -20,25 +20,21 @@ const Products = () => {
     dispatch(getAllProduct());
   }, [dispatch]);
   return (
-    <section className="products container-div">
-      <SectionTitle
-        title="Our Products"
-        desc="Quam pellentesque nec nam aliquam sem et tortor consequat."
-      />
+    <>
+      <section className="products container-div shop">
+        <SectionTitle title="All Products" />
 
-      <motion.div
-        transition={{ duration: 0.5, delayChildren: 0.5 }}
-        className="products__items grid"
-      >
-        {loading ? (
-          <Loading />
-        ) : error ? (
-          <h3>{error}</h3>
-        ) : (
-          <>
-            {products
-              ?.slice(0, 6)
-              ?.map(({ _id, name, images, rating, price }) => (
+        <motion.div
+          transition={{ duration: 0.5, delayChildren: 0.5 }}
+          className="products__items grid"
+        >
+          {loading ? (
+            <Loading />
+          ) : error ? (
+            <h3>{error}</h3>
+          ) : (
+            <>
+              {products?.map(({ _id, name, images, rating, price }) => (
                 <motion.div
                   whileInView={{ opacity: [0, 1] }}
                   transition={{ duration: 0.5 }}
@@ -63,11 +59,13 @@ const Products = () => {
                   </div>
                 </motion.div>
               ))}
-          </>
-        )}
-      </motion.div>
-    </section>
+            </>
+          )}
+        </motion.div>
+      </section>
+      <Footer />
+    </>
   );
 };
 
-export default Products;
+export default Shop;

@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+import { createOrderReducer } from "./orderReducer";
 import {
   createProductReducer,
   productByIdReducer,
@@ -12,4 +13,5 @@ export default combineReducers({
   createProduct: createProductReducer,
   allProducts: productReducer,
   productById: productByIdReducer,
+  createOrder: createOrderReducer,
 });

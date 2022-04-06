@@ -8,15 +8,16 @@ import {
   Contact,
   Home,
   Login,
+  MyOrders,
   NotFound,
+  PlaceOrder,
   ProductDetail,
   Register,
+  Shop,
 } from "./pages";
 import AddProduct from "./pages/AddProduct/AddProduct";
 import PrivateRoute from "./pages/PrivateRoute/PrivateRoute";
-import AddNewProduct from "./pages/UserDashboard/AddNewProduct/AddNewProduct";
-import Blank from "./pages/UserDashboard/Blank/Blank";
-import MyOrders from "./pages/UserDashboard/MyOrders/MyOrders";
+
 import UserDashboard from "./pages/UserDashboard/UserDashboard";
 import Welcome from "./pages/UserDashboard/Welcome/Welcome";
 import { SERT_USER } from "./redux/constants/userConstants";
@@ -48,8 +49,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
+          <Route path="shop" element={<Shop />} />
 
           <Route path="products/:productId" element={<ProductDetail />} />
+          <Route path="placeorder/:orderId" element={<PlaceOrder />} />
 
           <Route
             path="contact"

@@ -14,7 +14,6 @@ const initialstate = {
   name: "",
   price: 0,
   description: "",
-  stock: 0,
 };
 const AddProduct = () => {
   const navigate = useNavigate();
@@ -23,14 +22,9 @@ const AddProduct = () => {
 
   const dispatch = useDispatch();
 
-  // const token = useSelector((state) => state.userLogin.userInfo.access_token);
   const { products, error } = useSelector((state) => state?.createProduct);
-  // const productData = useSelector((state) => state.adminProducts);
 
-  console.log(products, "create add product");
-  // const [onEdit, setOnEdit] = useState(false);
-
-  const { name, description, price, stock } = product;
+  const { name, description, price } = product;
 
   const [images, setImages] = useState(false);
   const [uploadError, setUploadError] = useState("");
@@ -153,19 +147,6 @@ const AddProduct = () => {
               />
             </div>
 
-            <div className="contact__form__div">
-              <label htmlFor="stock" className="contact__form__div-tag">
-                Product Stock
-              </label>
-              <input
-                type="number"
-                name="stock"
-                id="stock"
-                placeholder="Product stock here"
-                value={stock}
-                onChange={handleChangeInput}
-              />
-            </div>
             <div className="contact__form__div pass">
               <label htmlFor="price" className="contact__form__div-tag">
                 Price
