@@ -50,7 +50,7 @@ const initState = {
 };
 
 // get specific user orders
-export const userOrderReducer = (state = initState, action) => {
+export const userOrderReducer = (state = { userOrders: [] }, action) => {
   switch (action.type) {
     case GET_ORDER_REQUEST:
       return {
@@ -59,7 +59,7 @@ export const userOrderReducer = (state = initState, action) => {
     case GET_ORDER_SUCCESS:
       return {
         loading: false,
-        orders: action.payload,
+        userOrders: action.payload,
       };
     case GET_ORDER_FAIL:
       return {

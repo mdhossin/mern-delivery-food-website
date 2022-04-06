@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteOrder, getAllOrders } from "../../../redux/actions/orderActions";
-
 import { Table } from "react-bootstrap";
 import Loading from "../../../components/Loading/Loading";
 import { FaTrashAlt } from "react-icons/fa";
 import { toast } from "react-toastify";
-import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 
 const ManageAllOrders = () => {
   const dispatch = useDispatch();
@@ -27,7 +25,7 @@ const ManageAllOrders = () => {
 
   return (
     <section className="section myorders container-div">
-      <SectionTitle title="Manage All Orders" />
+      <h2>Manage All Orders</h2>
       <div>
         <Table responsive="sm">
           <thead>
@@ -40,7 +38,11 @@ const ManageAllOrders = () => {
           </thead>
           <tbody>
             {loading ? (
-              <Loading />
+              <tr>
+                <td className="order-loading">
+                  <Loading />
+                </td>
+              </tr>
             ) : error ? (
               <h3>{error}</h3>
             ) : (

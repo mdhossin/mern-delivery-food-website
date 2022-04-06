@@ -9,12 +9,13 @@ import { Table } from "react-bootstrap";
 import Loading from "../../../components/Loading/Loading";
 import { FaTrashAlt } from "react-icons/fa";
 import { toast } from "react-toastify";
-import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 
 const MyOrders = () => {
   const { currentUser } = useSelector((state) => state.user);
   const dispatch = useDispatch();
-  const { orders, loading, error } = useSelector((state) => state.userOrders);
+  const { userOrders, loading, error } = useSelector(
+    (state) => state.userOrders
+  );
   const [callback, setCallback] = useState(false);
 
   useEffect(() => {
@@ -31,7 +32,7 @@ const MyOrders = () => {
 
   return (
     <section className="section myorders container-div">
-      <SectionTitle title="My Orders" />
+      <h2>My Orders</h2>
       <div>
         <Table responsive="sm">
           <thead>
@@ -44,12 +45,16 @@ const MyOrders = () => {
           </thead>
           <tbody>
             {loading ? (
-              <Loading />
+              <tr>
+                <td className="order-loading">
+                  <Loading />
+                </td>
+              </tr>
             ) : error ? (
               <h3>{error}</h3>
             ) : (
               <>
-                {orders?.map(({ _id, productId, displayName, status }) => (
+                {userOrders?.map(({ _id, productId, displayName, status }) => (
                   <tr key={_id}>
                     <td>#{productId}</td>
                     <td>{displayName}</td>
@@ -75,7 +80,7 @@ const MyOrders = () => {
           color: "#333",
         }}
       >
-        {orders?.length === 0 && "Your order is empty."}
+        {userOrders?.length === 0 && "Your order is empty."}
       </h2>
     </section>
   );

@@ -41,15 +41,11 @@ const AddProduct = () => {
       formData.append("file", file);
       setIsLoading(true);
       setUploadError("");
-      const res = await axios.post(
-        "https://yummy-food-delivery.herokuapp.com/api/upload",
-        formData,
-        {
-          headers: {
-            "content-type": "multipart/form-data",
-          },
-        }
-      );
+      const res = await axios.post("/api/upload", formData, {
+        headers: {
+          "content-type": "multipart/form-data",
+        },
+      });
       setIsLoading(false);
       setImages(res.data);
       setUploadSuccess(res.data.message);
@@ -69,12 +65,9 @@ const AddProduct = () => {
     try {
       setIsLoading(true);
       setUploadError("");
-      const res = await axios.post(
-        "https://yummy-food-delivery.herokuapp.com/api/destroy",
-        {
-          public_id: images.public_id,
-        }
-      );
+      const res = await axios.post("/api/destroy", {
+        public_id: images.public_id,
+      });
       setIsLoading(false);
       setImages(false);
       setUploadSuccess(res.data.message);
