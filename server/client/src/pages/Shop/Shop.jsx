@@ -14,7 +14,6 @@ const Shop = () => {
   const { products, loading, error } = useSelector(
     (state) => state.allProducts
   );
-  console.log(products, "all ");
 
   useEffect(() => {
     dispatch(getAllProduct());
@@ -28,7 +27,7 @@ const Shop = () => {
           transition={{ duration: 0.5, delayChildren: 0.5 }}
           className="products__items grid"
         >
-          {!loading ? (
+          {loading ? (
             <Loading />
           ) : error ? (
             <h3>{error}</h3>

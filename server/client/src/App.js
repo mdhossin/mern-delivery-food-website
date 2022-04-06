@@ -1,7 +1,7 @@
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Route, Router, Routes } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Route, Routes } from "react-router-dom";
 import { Header } from "./components";
 import { auth } from "./firebase";
 import {
@@ -26,9 +26,6 @@ import "./scss/styles.scss";
 
 function App() {
   const dispatch = useDispatch();
-
-  const { currentUser } = useSelector((state) => state.user);
-  console.log(currentUser);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Spinner } from "react-bootstrap";
 import { validRegister } from "../../utils/validation";
@@ -22,7 +21,6 @@ const Register = () => {
   });
 
   const { currentUser, loading, error } = useSelector((state) => state.user);
-  console.log(currentUser, "register");
 
   const redirect = location.state?.path || "/";
 
@@ -38,7 +36,6 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const result = validRegister(newUser);
-    console.log(result);
     if (result?.errLength) {
       return toast.error(result?.errMsg[0]);
     }

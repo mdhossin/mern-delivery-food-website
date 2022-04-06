@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import { toast } from "react-toastify";
 import { createOrders } from "../../redux/actions/orderActions";
-import { getProductById } from "../../redux/actions/productActions";
+
 import { CREATE_ORDER_RESET } from "../../redux/constants/orderConstants";
 const PlaceOrder = () => {
   const { currentUser } = useSelector((state) => state?.user);

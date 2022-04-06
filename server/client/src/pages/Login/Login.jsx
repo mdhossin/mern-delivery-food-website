@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Spinner } from "react-bootstrap";
 import { FcGoogle } from "react-icons/fc";
@@ -18,7 +17,6 @@ const Login = () => {
   const [newUser, setNewUser] = useState({ email: "", password: "" });
 
   const { currentUser, loading, error } = useSelector((state) => state.user);
-  console.log(currentUser);
 
   const redirect = location.state?.path || "/";
 

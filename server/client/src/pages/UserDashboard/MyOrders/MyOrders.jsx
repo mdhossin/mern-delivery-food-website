@@ -31,52 +31,50 @@ const MyOrders = () => {
   return (
     <section className="section myorders">
       <h2>My Orders</h2>
-      <div>
-        <Table responsive="sm">
-          <thead>
-            <tr>
-              <th>Order Id</th>
-              <th>Name</th>
-              <th>Status</th>
-              <th>Remove</th>
-            </tr>
-          </thead>
-          <tbody>
-            {loading ? (
-              <Loading />
-            ) : error ? (
-              <h3>{error}</h3>
-            ) : (
-              <>
-                {orders?.map(({ _id, productId, displayName, status }) => (
-                  <tr key={_id}>
-                    <td>#{productId}</td>
-                    <td>{displayName}</td>
-                    <td>{status}</td>
-                    <td title="Remove">
-                      {" "}
-                      <FaTrashAlt
-                        onClick={() => deleteHandler(_id)}
-                        style={{ color: "rgb(165, 5, 29)" }}
-                      />
-                    </td>
-                  </tr>
-                ))}
 
-                <h2
-                  style={{
-                    marginTop: "2rem",
-                    textAlign: "center",
-                    color: "#333",
-                  }}
-                >
-                  {orders?.length === 0 && "Your order is empty."}
-                </h2>
-              </>
-            )}
-          </tbody>
-        </Table>
-      </div>
+      <Table responsive="sm">
+        <thead>
+          <tr>
+            <th>Order Id</th>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+
+        {loading ? (
+          <Loading />
+        ) : error ? (
+          <h3>{error}</h3>
+        ) : (
+          <>
+            {orders?.map(({ _id, productId, displayName, status }) => (
+              <tr key={_id}>
+                <td>#{productId}</td>
+                <td>{displayName}</td>
+                <td>{status}</td>
+                <td title="Remove">
+                  {" "}
+                  <FaTrashAlt
+                    onClick={() => deleteHandler(_id)}
+                    style={{ color: "rgb(165, 5, 29)" }}
+                  />
+                </td>
+              </tr>
+            ))}
+          </>
+        )}
+      </Table>
+
+      <h2
+        style={{
+          marginTop: "2rem",
+          textAlign: "center",
+          color: "#333",
+        }}
+      >
+        {orders?.length === 0 && "Your order is empty."}
+      </h2>
     </section>
   );
 };

@@ -14,7 +14,6 @@ const Products = () => {
   const { products, loading, error } = useSelector(
     (state) => state.allProducts
   );
-  console.log(products, "all ");
 
   useEffect(() => {
     dispatch(getAllProduct());
