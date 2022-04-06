@@ -167,6 +167,7 @@ const AddProduct = () => {
                 Product Description
               </label>
               <textarea
+                style={{ width: "100% !important" }}
                 className="contact__form__div-textarea"
                 name="description"
                 id="description"

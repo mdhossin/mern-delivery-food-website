@@ -1,0 +1,179 @@
+@use "./utils/" as *;
+/*------ 22. contact Page  ------*/
+
+.contact-bg {
+  padding-top: 10rem;
+  height: 300px;
+  background-attachment: fixed;
+  background-repeat: repeat;
+  background-position: 50% -954.023px;
+  background-size: cover;
+  background-image: url("https://cdn.shopify.com/s/files/1/0267/5979/0615/files/yummi-11_1512x.jpg?v=1590045740");
+
+  h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    color: rgb(224, 224, 224);
+
+    font-weight: 600;
+  }
+}
+.contacts {
+  padding-bottom: 7rem;
+  &__content {
+    @include breakpoints-up("large") {
+      padding-top: 5rem;
+      grid-template-columns: 1.5fr 2fr;
+    }
+
+    &__info {
+      padding: 0 1rem;
+
+      //   flex: 1;
+      @include breakpoints-up("medium") {
+        padding: 0 2rem;
+      }
+
+      &__wrapper {
+        padding: 5rem 0;
+        // padding: 9rem 0;
+
+        &__info {
+          display: flex;
+          column-gap: 1.2rem;
+          align-items: center;
+          border: 1px solid #e4e4e4;
+          padding: 2rem;
+
+          @include breakpoints-down("small") {
+            padding: 1.5rem 1rem;
+          }
+          &-icon {
+            font-size: 20px;
+            line-height: 40px;
+
+            display: inline-block;
+
+            width: 40px;
+            height: 40px;
+
+            transition: all 0.3s ease 0s;
+            text-align: center;
+
+            color: #252525;
+            border: 1px solid #252525;
+            border-radius: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          h6 {
+            font-size: 22px;
+            color: #333;
+            font-weight: 600;
+          }
+
+          p {
+            font-size: 16px;
+            font-weight: 500;
+            color: #2c2c2c;
+            margin-top: 0.8rem;
+          }
+        }
+
+        &__social {
+          text-align: center;
+          h3 {
+            font-weight: 500;
+            line-height: 1;
+
+            margin-top: 2.5rem;
+
+            color: #2c2c2c;
+            text-align: center;
+          }
+
+          ul {
+            margin-top: 1.5rem;
+            li {
+              display: inline-block;
+
+              &:not(:first-child) {
+                margin-left: 20px;
+              }
+              a {
+                svg {
+                  font-size: 18px;
+                }
+                color: #4d4d4d;
+
+                &:hover {
+                  color: var(--theme-color);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__details {
+      padding: 0 1rem;
+      //   flex: 2;
+      //   padding: 5rem 4rem;
+      @include breakpoints-up("medium") {
+        padding: 0 2rem;
+      }
+      @include breakpoints-up("large") {
+      }
+
+      &__form {
+        .contact-input {
+          margin: 0 !important;
+        }
+        &__title {
+          color: #2c2c2c;
+          font-weight: 500;
+          margin-bottom: 2.5rem;
+          text-align: center;
+
+          @include breakpoints-up("large") {
+            text-align: start;
+          }
+        }
+
+        &__desc {
+          input,
+          textarea {
+            height: 50px;
+            margin-bottom: 20px;
+            padding: 2px 14px;
+
+            color: #000;
+            border: 1px solid #c1c1c1;
+            background: transparent;
+          }
+          textarea {
+            height: 175px;
+            margin-bottom: 0;
+            padding: 20px 14px;
+            width: 100% !important;
+          }
+          button {
+            background: var(--main-color);
+            height: 50px;
+            font-size: 16px;
+            color: #fff;
+            display: block;
+            margin-top: 1.5rem;
+            transition: all 0.5s ease;
+            width: 200px;
+            &:hover {
+              background: rgb(165, 5, 29);
+            }
+          }
+        }
+      }
+    }
+  }
+}

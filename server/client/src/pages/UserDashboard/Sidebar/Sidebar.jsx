@@ -4,7 +4,7 @@ import { MdSpaceDashboard } from "react-icons/md";
 import { RiDashboard2Fill } from "react-icons/ri";
 import { FaAddressCard } from "react-icons/fa";
 import { GiTwirlCenter } from "react-icons/gi";
-
+import { CgFileAdd } from "react-icons/cg";
 import { VscChromeClose } from "react-icons/vsc";
 import { Link } from "react-router-dom";
 import { AiOutlineMenu } from "react-icons/ai";
@@ -67,7 +67,7 @@ export default function Sidebar() {
                 onClick={() => setCurrentLink(4)}
               >
                 <Link to="/dashboard/manageorder">
-                  <GiTwirlCenter />
+                  <CgFileAdd />
                   <span> Manage All Orders</span>
                 </Link>
               </li>
@@ -117,7 +117,7 @@ export default function Sidebar() {
                 to="/dashboard/addproduct"
                 onClick={() => setNavbarState(false)}
               >
-                <FaAddressCard />
+                <CgFileAdd />
                 <span> Add New Product</span>
               </Link>
             </li>
