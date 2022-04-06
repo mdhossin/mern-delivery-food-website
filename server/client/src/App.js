@@ -17,6 +17,7 @@ import {
 } from "./pages";
 import AddProduct from "./pages/AddProduct/AddProduct";
 import PrivateRoute from "./pages/PrivateRoute/PrivateRoute";
+import ManageAllOrders from "./pages/UserDashboard/MangaAllOrders/ManageAllOrders";
 
 import UserDashboard from "./pages/UserDashboard/UserDashboard";
 import Welcome from "./pages/UserDashboard/Welcome/Welcome";
@@ -63,9 +64,17 @@ function App() {
             }
           />
 
-          <Route path="dashboard" element={<UserDashboard />}>
+          <Route
+            path="dashboard"
+            element={
+              <PrivateRoute>
+                <UserDashboard />
+              </PrivateRoute>
+            }
+          >
             <Route index element={<Welcome />}></Route>
             <Route path="myorders" element={<MyOrders />}></Route>
+            <Route path="manageOrders" element={<ManageAllOrders />}></Route>
             <Route path="addproduct" element={<AddProduct />} />
           </Route>
 

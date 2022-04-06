@@ -46,14 +46,14 @@ const orderController = {
     }
   },
   async getAllOrders(req, res) {
-    let products;
+    let orders;
     try {
-      products = await Order.find().select("-updatedAt -__v").sort({ _id: -1 });
+      orders = await Order.find().select("-updatedAt -__v").sort({ _id: -1 });
     } catch (err) {
       return res.status(500).json({ message: "Server Error" });
     }
 
-    res.json(products);
+    res.json(orders);
   },
 
   // get the specific user order

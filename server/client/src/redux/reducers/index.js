@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
 import {
+  allOrderReducer,
   createOrderReducer,
   orderDeleteReducer,
   userOrderReducer,
@@ -20,4 +21,5 @@ export default combineReducers({
   createOrder: createOrderReducer,
   userOrders: userOrderReducer,
   deleteOrder: orderDeleteReducer,
+  allOrders: allOrderReducer,
 });

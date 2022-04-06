@@ -3,6 +3,9 @@ import {
   CREATE_ORDER_REQUEST,
   CREATE_ORDER_RESET,
   CREATE_ORDER_SUCCESS,
+  GET_ALL_ORDER_FAIL,
+  GET_ALL_ORDER_REQUEST,
+  GET_ALL_ORDER_SUCCESS,
   GET_ORDER_FAIL,
   GET_ORDER_REQUEST,
   GET_ORDER_SUCCESS,
@@ -46,7 +49,7 @@ const initState = {
   orders: [],
 };
 
-// get all product
+// get specific user orders
 export const userOrderReducer = (state = initState, action) => {
   switch (action.type) {
     case GET_ORDER_REQUEST:
@@ -87,6 +90,28 @@ export const orderDeleteReducer = (state = {}, action) => {
     case GET_ORDER_DELETE_RESET:
       return {};
 
+    default:
+      return state;
+  }
+};
+
+// get all ORDERS
+export const allOrderReducer = (state = initState, action) => {
+  switch (action.type) {
+    case GET_ALL_ORDER_REQUEST:
+      return {
+        loading: true,
+      };
+    case GET_ALL_ORDER_SUCCESS:
+      return {
+        loading: false,
+        orders: action.payload,
+      };
+    case GET_ALL_ORDER_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
     default:
       return state;
   }

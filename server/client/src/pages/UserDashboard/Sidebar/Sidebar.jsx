@@ -66,7 +66,7 @@ export default function Sidebar() {
                 className={currentLink === 4 ? "active" : "none"}
                 onClick={() => setCurrentLink(4)}
               >
-                <Link to="/dashboard/manageorder">
+                <Link to="/dashboard/manageOrders">
                   <GiTwirlCenter />
                   <span> Manage All Orders</span>
                 </Link>
@@ -125,7 +125,7 @@ export default function Sidebar() {
               className={currentLink === 4 ? "active" : "none"}
               onClick={() => setCurrentLink(4)}
             >
-              <Link to="/">
+              <Link to="/dashboard/manageOrders">
                 <GiTwirlCenter />
                 <span> Manage All Orders</span>
               </Link>

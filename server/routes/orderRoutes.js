@@ -6,5 +6,5 @@ const router = express.Router();
 router.post("/orders", orderController.createOrder);
 router.get("/orders/:email", orderController.getOrderByEmail);
 router.delete("/orders/:id", orderController.deleteOrder);
-
+router.get("/orders", orderController.getAllOrders);
 module.exports = router;

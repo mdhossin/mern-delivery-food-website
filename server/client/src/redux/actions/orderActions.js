@@ -4,6 +4,9 @@ import {
   CREATE_ORDER_REQUEST,
   CREATE_ORDER_RESET,
   CREATE_ORDER_SUCCESS,
+  GET_ALL_ORDER_FAIL,
+  GET_ALL_ORDER_REQUEST,
+  GET_ALL_ORDER_SUCCESS,
   GET_ORDER_FAIL,
   GET_ORDER_REQUEST,
   GET_ORDER_SUCCESS,
@@ -102,5 +105,27 @@ export const deleteOrder = (id, toast) => async (dispatch) => {
           : error.message,
     });
     // console.log(error);
+  }
+};
+
+// Get all orders
+export const getAllOrders = () => async (dispatch) => {
+  try {
+    dispatch({ type: GET_ALL_ORDER_REQUEST });
+
+    const { data } = await axios.get(`/api/orders`);
+
+    dispatch({
+      type: GET_ALL_ORDER_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: GET_ALL_ORDER_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
   }
 };

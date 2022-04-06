@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import { getProductById } from "../../redux/actions/productActions";
 import { Spinner } from "react-bootstrap";
@@ -49,7 +49,9 @@ const ProductDetail = () => {
               </div>
 
               <div className="product__detail__info-btn">
-                <button>Order Now</button>
+                <Link to={`/placeorder/${product?._id}`}>
+                  <button>Order Now</button>
+                </Link>
               </div>
 
               <div className="product__detail__info-desc">
