@@ -12,6 +12,7 @@ import {
   PRODUCT_BY_ID_SUCCESS,
 } from "../constants/productConstants";
 
+// create product reducer
 export const createProductReducer = (state = {}, action) => {
   switch (action.type) {
     case CREATE_PRODUCT_REQUEST:
@@ -44,7 +45,7 @@ const initState = {
   products: [],
 };
 
-// get all product
+// get all product reducer
 export const productReducer = (state = initState, action) => {
   switch (action.type) {
     case ALL_PRODUCTS_LOADING:
@@ -67,6 +68,7 @@ export const productReducer = (state = initState, action) => {
   }
 };
 
+// get product by id reducer
 export const productByIdReducer = (state = { product: {} }, action) => {
   switch (action.type) {
     case PRODUCT_BY_ID_REQUEST:

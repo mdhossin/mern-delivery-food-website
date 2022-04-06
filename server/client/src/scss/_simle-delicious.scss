@@ -8,9 +8,7 @@
   background-position: 100%;
   position: relative;
   background-attachment: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex(center, center);
 
   &__overlay {
     position: absolute;
@@ -24,9 +22,7 @@
 
   &__content {
     z-index: 10;
-
     text-align: center;
-
     p {
       font-size: 16px;
       color: #fff;

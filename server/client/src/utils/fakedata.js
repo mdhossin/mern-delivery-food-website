@@ -20,6 +20,8 @@ import {
   whatSpecialThree,
   whatSpecialTwo,
 } from "../assets";
+import sliderOne from "../assets/images/slide1-bg.webp";
+import sliderTwo from "../assets/images/slide2-bg.webp";
 
 export const cuisinesDataLeft = [
   {
@@ -159,5 +161,22 @@ export const brandData = [
   {
     id: 5,
     img: brandFive,
+  },
+];
+
+export const sliderData = [
+  {
+    id: 1,
+    imgPath: sliderTwo,
+    title: "Eat Dish @ Great Price  ",
+    desc: "Home Made Dish On Your Doorstep",
+    discount: "10 - 15% OFF",
+  },
+  {
+    id: 2,
+    imgPath: sliderOne,
+    title: "Tasty Bites Healthy Foods",
+    desc: "Mega Discounts On",
+    discount: "10 - 50% OFF",
   },
 ];

@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-
 import { toast } from "react-toastify";
 import { createOrders } from "../../redux/actions/orderActions";
-
 import { CREATE_ORDER_RESET } from "../../redux/constants/orderConstants";
 const PlaceOrder = () => {
   const { currentUser } = useSelector((state) => state?.user);
@@ -44,7 +42,6 @@ const PlaceOrder = () => {
     } else if (userOrder?.message) {
       dispatch({ type: CREATE_ORDER_RESET });
       toast.success(userOrder?.message);
-      // navigate(redirect);
     }
   }, [userOrder, error, dispatch]);
   return (

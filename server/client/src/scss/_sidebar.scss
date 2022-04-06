@@ -12,16 +12,14 @@
 }
 
 .sidebar {
+  @include flex(center, space-between);
   margin-top: 5rem;
   position: fixed;
   left: 0;
   background-color: #212121;
   height: 100vh;
   width: 18vw;
-  display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
   padding: 2rem 0;
   gap: 2rem;
   .top {
@@ -35,9 +33,7 @@
     }
     .brand {
       width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include flex(center, center);
       gap: 2rem;
       svg {
         color: #fff;
@@ -46,7 +42,6 @@
       span {
         font-size: 2rem;
         color: #fff;
-
         font-family: "Permanent Marker", cursive;
       }
     }
@@ -89,9 +84,7 @@
       background-color: #da0037;
     }
     a {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
+      @include flex(center, flex-start);
       color: white;
     }
   }
@@ -133,8 +126,6 @@
   z-index: 10;
   background-color: black;
   height: 100vh;
-  //   width: ${({ state }) => (state ? "60%" : "0%")};
-  //   width: 60%;
   transition: 0.5s ease-in-out;
   display: flex;
   opacity: 0;

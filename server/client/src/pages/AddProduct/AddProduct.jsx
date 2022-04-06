@@ -1,11 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
-
 import { useSelector, useDispatch } from "react-redux";
-
 import { useNavigate } from "react-router-dom";
-
 import { toast } from "react-toastify";
 import { createProduct } from "../../redux/actions/productActions";
 import { CREATE_PRODUCT_RESET } from "../../redux/constants/productConstants";
@@ -17,19 +14,15 @@ const initialstate = {
 };
 const AddProduct = () => {
   const navigate = useNavigate();
-
   const [product, setProduct] = useState(initialstate);
-
   const dispatch = useDispatch();
 
   const { products, error } = useSelector((state) => state?.createProduct);
-
   const { name, description, price } = product;
 
   const [images, setImages] = useState(false);
   const [uploadError, setUploadError] = useState("");
   const [uploadSuccess, setUploadSuccess] = useState("");
-
   const [isLoading, setIsLoading] = useState(false);
 
   // image upload here
@@ -88,11 +81,6 @@ const AddProduct = () => {
     setProduct({ ...product, [name]: value });
   };
 
-  // const clear = () => {
-  //   setImages();
-  //   setProduct({ name: "", description: "", quantity: "", price: "" });
-  // };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -108,7 +96,6 @@ const AddProduct = () => {
     } else if (products?.message) {
       dispatch({ type: CREATE_PRODUCT_RESET });
       toast.success(products?.message);
-      // navigate(redirect);
     }
   }, [products, error, dispatch]);
 
@@ -117,11 +104,8 @@ const AddProduct = () => {
       toast.error(uploadError);
     } else if (uploadSuccess) {
       toast.success(uploadSuccess);
-      // navigate(redirect);
     }
   }, [uploadSuccess, uploadError]);
-
-  // clear();
 
   const styleUpload = {
     display: images ? "block" : "none",

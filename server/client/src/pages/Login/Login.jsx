@@ -15,13 +15,10 @@ const Login = () => {
   const dispatch = useDispatch();
 
   const [newUser, setNewUser] = useState({ email: "", password: "" });
-
   const { currentUser, loading, error } = useSelector((state) => state.user);
-
   const redirect = location.state?.path || "/";
 
   const { email, password } = newUser;
-  // const [remember, setRemember] = useState(false);
 
   const [typePass, setTypePass] = useState(false);
 

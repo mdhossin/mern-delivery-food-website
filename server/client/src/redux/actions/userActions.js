@@ -21,7 +21,7 @@ import {
 } from "firebase/auth";
 
 import { auth, provierGoogle } from "../../firebase";
-
+// register user action
 export const register = (email, password, name) => async (dispatch) => {
   try {
     dispatch({
@@ -29,8 +29,6 @@ export const register = (email, password, name) => async (dispatch) => {
     });
 
     const res = await createUserWithEmailAndPassword(auth, email, password);
-
-    // display name pauar jonno use korsi
     await updateProfile(res.user, {
       displayName: name,
     });
@@ -49,6 +47,7 @@ export const register = (email, password, name) => async (dispatch) => {
     });
   }
 };
+// login user action
 export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({
@@ -71,18 +70,17 @@ export const login = (email, password) => async (dispatch) => {
     });
   }
 };
+// logout user action
 export const logOut = () => async (dispatch) => {
   try {
     dispatch({
       type: USER_LOGOUT_REQUEST,
     });
 
-    const res = await signOut(auth);
-    console.log(res, "logut action");
+    await signOut(auth);
 
     dispatch({
       type: USER_LOGOUT_SUCCESS,
-      //   payload: res.user,
     });
   } catch (error) {
     dispatch({
@@ -94,6 +92,7 @@ export const logOut = () => async (dispatch) => {
     });
   }
 };
+// google login action
 
 export const googleSignin = () => async (dispatch) => {
   try {

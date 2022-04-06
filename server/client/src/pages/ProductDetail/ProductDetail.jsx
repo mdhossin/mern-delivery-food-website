@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-
 import { getProductById } from "../../redux/actions/productActions";
 import { Spinner } from "react-bootstrap";
 import ProductRating from "../../components/ProductRating/ProductRating";

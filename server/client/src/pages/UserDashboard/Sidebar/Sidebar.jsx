@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import { MdSpaceDashboard } from "react-icons/md";
 import { RiDashboard2Fill } from "react-icons/ri";
 import { FaAddressCard } from "react-icons/fa";
@@ -66,7 +65,7 @@ export default function Sidebar() {
                 className={currentLink === 4 ? "active" : "none"}
                 onClick={() => setCurrentLink(4)}
               >
-                <Link to="/dashboard/manageorder">
+                <Link to="/dashboard/manageOrders">
                   <CgFileAdd />
                   <span> Manage All Orders</span>
                 </Link>
@@ -74,12 +73,6 @@ export default function Sidebar() {
             </ul>
           </div>
         </div>
-        {/* <div className="logout">
-          <a href="#">
-            <FiLogOut />
-            <span className="logout">Logout</span>
-          </a>
-        </div> */}
       </section>
       <div
         // state={navbarState}
@@ -125,7 +118,10 @@ export default function Sidebar() {
               className={currentLink === 4 ? "active" : "none"}
               onClick={() => setCurrentLink(4)}
             >
-              <Link to="/dashboard/manageOrders">
+              <Link
+                to="/dashboard/manageOrders"
+                onClick={() => setNavbarState(false)}
+              >
                 <GiTwirlCenter />
                 <span> Manage All Orders</span>
               </Link>

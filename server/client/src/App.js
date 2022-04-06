@@ -5,22 +5,22 @@ import { Route, Routes } from "react-router-dom";
 import { Header } from "./components";
 import { auth } from "./firebase";
 import {
+  AddProduct,
   Contact,
   Home,
   Login,
+  ManageAllOrders,
   MyOrders,
   NotFound,
   PlaceOrder,
+  PrivateRoute,
   ProductDetail,
   Register,
   Shop,
+  UserDashboard,
+  Welcome,
 } from "./pages";
-import AddProduct from "./pages/AddProduct/AddProduct";
-import PrivateRoute from "./pages/PrivateRoute/PrivateRoute";
-import ManageAllOrders from "./pages/UserDashboard/MangaAllOrders/ManageAllOrders";
 
-import UserDashboard from "./pages/UserDashboard/UserDashboard";
-import Welcome from "./pages/UserDashboard/Welcome/Welcome";
 import { SERT_USER } from "./redux/constants/userConstants";
 import "./scss/styles.scss";
 
@@ -48,7 +48,6 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route path="shop" element={<Shop />} />
-
           <Route path="products/:productId" element={<ProductDetail />} />
           <Route path="placeorder/:orderId" element={<PlaceOrder />} />
 
@@ -74,7 +73,6 @@ function App() {
             <Route path="manageOrders" element={<ManageAllOrders />}></Route>
             <Route path="addproduct" element={<AddProduct />} />
           </Route>
-
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

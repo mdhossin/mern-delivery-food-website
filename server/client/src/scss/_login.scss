@@ -6,8 +6,6 @@
   padding: 4rem 3.5rem 3rem 3.5rem;
   border: 0.1px solid rgb(228, 228, 228);
   border-radius: 0.3rem;
-
-  //extra medium 375px
   @include breakpoints-down("medium") {
     width: 350px;
     padding: 4rem 2rem 3rem 2rem;
@@ -35,9 +33,7 @@
     }
     &__div {
       margin: 1rem 0;
-
       position: relative;
-
       small {
         position: absolute;
         top: 70%;
@@ -94,10 +90,7 @@
         text-transform: capitalize;
         margin-bottom: 0.8rem;
         transition: all 0.5s ease;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
+        @include flex(center, center);
         svg {
           margin-right: 0.5rem;
           font-size: 16px;

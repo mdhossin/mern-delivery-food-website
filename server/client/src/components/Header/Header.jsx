@@ -1,9 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { AiOutlineUser } from "react-icons/ai";
 import { CgMenuRight } from "react-icons/cg";
-
 import { MdRestaurantMenu } from "react-icons/md";
-
 import { Link, useNavigate } from "react-router-dom";
 import { NavDropdown } from "react-bootstrap";
 import logo from "../../assets/images/logo.jpg";
@@ -15,9 +13,7 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const headerRef = useRef(null);
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
-
   const { currentUser } = useSelector((state) => state.user);
 
   useEffect(() => {

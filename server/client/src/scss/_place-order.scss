@@ -10,7 +10,6 @@
 
   &__form {
     gap: 0 !important;
-
     @include breakpoints-up("large") {
       grid-template-columns: repeat(2, 1fr);
       gap: 2rem !important;

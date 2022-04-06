@@ -1,6 +1,7 @@
 const Product = require("../models/productModel");
 
 const productController = {
+  // create product
   async createProducts(req, res) {
     try {
       const { name, price, description, images, rating, stock } = req.body;
@@ -36,6 +37,7 @@ const productController = {
       return res.status(500).json({ message: "Server Error." });
     }
   },
+  // get all products
   async getAllProducts(req, res) {
     let products;
     try {
@@ -49,7 +51,8 @@ const productController = {
     res.json(products);
   },
 
-  async getByIdProduct(req, res, next) {
+  // get product by id
+  async getByIdProduct(req, res) {
     let product;
     try {
       product = await Product.findOne({ _id: req.params.id }).select(

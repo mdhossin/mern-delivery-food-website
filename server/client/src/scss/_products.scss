@@ -19,7 +19,6 @@
       margin: 0 auto;
       transition: all 0.5s ease;
       position: relative;
-
       &:hover &__buttons {
         opacity: 1;
         bottom: 38%;
@@ -42,8 +41,6 @@
 
       &__buttons {
         position: absolute;
-
-        // bottom: 0;
         z-index: 100;
         width: 80%;
         right: 10%;
@@ -52,9 +49,7 @@
         transition: all 0.5s ease;
 
         div {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
+          @include flex(center, space-between);
 
           a {
             flex: 1;
@@ -63,14 +58,10 @@
               height: 50px;
               line-height: 50px;
               width: 100%;
-              // padding: 0 50px;
               font-size: 16px;
               color: #fff;
-
               display: block;
-
               transition: all 0.5s ease;
-
               &:hover {
                 background: rgb(165, 5, 29);
               }
@@ -80,11 +71,9 @@
       }
 
       img {
+        @include flex(center, center);
         width: 280px;
         height: 280px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         margin: 0 auto;
       }
 

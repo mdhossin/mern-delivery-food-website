@@ -7,6 +7,7 @@ import SimpleDelicious from "./SimpleDelicious/SimpleDelicious";
 import Products from "./Products/Products";
 import NewsLetter from "./NewsLetter/NewsLetter";
 import OurClients from "./OurClients/OurClients";
+import Footer from "./Footer/Footer";
 
 export {
   Header,
@@ -18,4 +19,5 @@ export {
   Products,
   NewsLetter,
   OurClients,
+  Footer,
 };

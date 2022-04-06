@@ -1,6 +1,7 @@
 const Order = require("../models/orderModel");
 
 const orderController = {
+  // crate order
   async createOrder(req, res) {
     console.log(req.body);
     try {
@@ -45,6 +46,7 @@ const orderController = {
       return res.status(500).json({ message: "Server Error." });
     }
   },
+  //get all order
   async getAllOrders(req, res) {
     let orders;
     try {
@@ -70,7 +72,7 @@ const orderController = {
 
     res.json(orders);
   },
-
+  // delete order
   async deleteOrder(req, res, next) {
     try {
       await Order.findByIdAndDelete(req.params.id);

@@ -14,7 +14,6 @@ import {
 
 // create product action
 export const createProduct = (product, navigate, toast) => async (dispatch) => {
-  // console.log(product, "product");
   try {
     dispatch({
       type: CREATE_PRODUCT_REQUEST,
@@ -24,9 +23,7 @@ export const createProduct = (product, navigate, toast) => async (dispatch) => {
         "Content-Type": "application/json",
       },
     };
-
     const { data } = await axios.post("/api/products", product, config);
-
     dispatch({
       type: CREATE_PRODUCT_SUCCESS,
       payload: data,
@@ -46,13 +43,11 @@ export const createProduct = (product, navigate, toast) => async (dispatch) => {
   }
 };
 
-// Get All Products
+// Get All Products action
 export const getAllProduct = () => async (dispatch) => {
   try {
     dispatch({ type: ALL_PRODUCTS_LOADING });
-
     const { data } = await axios.get("/api/products");
-
     dispatch({
       type: ALL_PRODUCTS_SUCCESS,
       payload: data,
@@ -68,7 +63,7 @@ export const getAllProduct = () => async (dispatch) => {
   }
 };
 
-// get product by id from DB
+// get product by id action
 export const getProductById = (id) => async (dispatch) => {
   try {
     dispatch({

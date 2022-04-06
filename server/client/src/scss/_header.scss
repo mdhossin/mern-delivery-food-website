@@ -10,10 +10,7 @@
 }
 
 .nav {
-  //   height: var(--header-height);
-
   @include flex(center, space-between);
-
   @include breakpoints-down("large") {
     margin: 0.5rem 1rem;
   }
@@ -28,14 +25,12 @@
   &__menu {
     @include breakpoints-down("large") {
       position: fixed;
-
       top: 0;
       right: -100%;
       width: 100%;
       height: 100vh;
       padding: 6rem 2rem 3.5rem;
       transition: all 0.5s ease;
-
       background: url("../assets/images/navbar.png");
       background-color: var(--color-white);
       background-size: cover;
@@ -94,14 +89,11 @@
   &__link {
     padding: 0.4rem;
     display: flex;
-
     font-size: 16px;
     font-weight: 500;
     letter-spacing: 0.5px;
-
     text-align: left;
     text-transform: capitalize;
-
     color: #333;
   }
 
@@ -136,10 +128,8 @@
       height: 38px;
       border-radius: 50%;
       position: relative;
-
       @include flex(center, center);
       background-color: var(--color-white);
-
       svg {
         width: 75%;
         height: 75%;
@@ -178,7 +168,6 @@
 }
 
 // override default style
-
 .dropdown {
   .nav-link {
     color: #2c2c2c !important;

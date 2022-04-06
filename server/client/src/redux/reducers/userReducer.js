@@ -20,6 +20,7 @@ const initialState = {
   currentUser: null,
   error: null,
 };
+// user reducer for all login, register, google
 
 export const userReducer = (state = initialState, action) => {
   switch (action.type) {

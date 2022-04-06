@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
-
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
-
 import { Link } from "react-router-dom";
 import { getAllProduct } from "../../redux/actions/productActions";
 import { SectionTitle } from "../../components";

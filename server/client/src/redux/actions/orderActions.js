@@ -51,14 +51,11 @@ export const createOrders = (order, navigate, toast) => async (dispatch) => {
   }
 };
 
-// Get USER orders
+// Get USER orders action
 export const getUserOrders = (email) => async (dispatch) => {
   try {
     dispatch({ type: GET_ORDER_REQUEST });
-
     const { data } = await axios.get(`/api/orders/${email}`);
-    console.log(data, "order action");
-
     dispatch({
       type: GET_ORDER_SUCCESS,
       payload: data,
@@ -74,7 +71,7 @@ export const getUserOrders = (email) => async (dispatch) => {
   }
 };
 
-// delete order from DB
+// delete order action
 export const deleteOrder = (id, toast) => async (dispatch) => {
   try {
     dispatch({
@@ -104,17 +101,14 @@ export const deleteOrder = (id, toast) => async (dispatch) => {
           ? error.response.data.message
           : error.message,
     });
-    // console.log(error);
   }
 };
 
-// Get all orders
+// Get all orders action
 export const getAllOrders = () => async (dispatch) => {
   try {
     dispatch({ type: GET_ALL_ORDER_REQUEST });
-
     const { data } = await axios.get(`/api/orders`);
-
     dispatch({
       type: GET_ALL_ORDER_SUCCESS,
       payload: data,

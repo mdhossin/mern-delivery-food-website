@@ -1,12 +1,9 @@
 @use "./utils/" as *;
 .footer {
   background-color: #222222;
-
   color: #fff;
-
   &__container {
     row-gap: 2rem;
-
     @include breakpoints-up("medium") {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -46,9 +43,7 @@
   }
 
   &__social {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex(center, center);
     gap: 1rem;
 
     li {

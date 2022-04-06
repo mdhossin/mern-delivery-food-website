@@ -17,6 +17,7 @@ import {
   GET_ORDER_DELETE_SUCCESS,
 } from "../constants/productConstants";
 
+// create order reducer
 export const createOrderReducer = (state = {}, action) => {
   switch (action.type) {
     case CREATE_ORDER_REQUEST:
@@ -27,7 +28,6 @@ export const createOrderReducer = (state = {}, action) => {
     case CREATE_ORDER_SUCCESS:
       return {
         loading: false,
-
         userOrder: action.payload,
       };
 
@@ -49,7 +49,7 @@ const initState = {
   orders: [],
 };
 
-// get specific user orders
+// get specific user orders reducer
 export const userOrderReducer = (state = { userOrders: [] }, action) => {
   switch (action.type) {
     case GET_ORDER_REQUEST:
@@ -71,6 +71,7 @@ export const userOrderReducer = (state = { userOrders: [] }, action) => {
   }
 };
 
+// order delete reducer
 export const orderDeleteReducer = (state = {}, action) => {
   switch (action.type) {
     case GET_ORDER_DELETE_REQUEST:
@@ -95,7 +96,7 @@ export const orderDeleteReducer = (state = {}, action) => {
   }
 };
 
-// get all ORDERS
+// get all ORDERS reducer
 export const allOrderReducer = (state = initState, action) => {
   switch (action.type) {
     case GET_ALL_ORDER_REQUEST:

@@ -1,9 +1,7 @@
 @use "./utils/" as *;
 
 .notfound {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex(center, center);
   height: 100vh;
 
   h1 {

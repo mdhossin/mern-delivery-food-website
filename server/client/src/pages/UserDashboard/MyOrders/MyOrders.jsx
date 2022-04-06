@@ -4,7 +4,6 @@ import {
   deleteOrder,
   getUserOrders,
 } from "../../../redux/actions/orderActions";
-
 import { Table } from "react-bootstrap";
 import Loading from "../../../components/Loading/Loading";
 import { FaTrashAlt } from "react-icons/fa";
