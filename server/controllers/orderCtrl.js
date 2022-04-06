@@ -70,6 +70,15 @@ const orderController = {
 
     res.json(orders);
   },
+
+  async deleteOrder(req, res, next) {
+    try {
+      await Order.findByIdAndDelete(req.params.id);
+      res.json({ message: "Order Deleted Successfully." });
+    } catch (err) {
+      return res.status(500).json({ message: "Server Eorror." });
+    }
+  },
 };
 
 module.exports = orderController;

@@ -3,7 +3,16 @@ import {
   CREATE_ORDER_REQUEST,
   CREATE_ORDER_RESET,
   CREATE_ORDER_SUCCESS,
+  GET_ORDER_FAIL,
+  GET_ORDER_REQUEST,
+  GET_ORDER_SUCCESS,
 } from "../constants/orderConstants";
+import {
+  GET_ORDER_DELETE_FAIL,
+  GET_ORDER_DELETE_REQUEST,
+  GET_ORDER_DELETE_RESET,
+  GET_ORDER_DELETE_SUCCESS,
+} from "../constants/productConstants";
 
 export const createOrderReducer = (state = {}, action) => {
   switch (action.type) {
@@ -16,7 +25,7 @@ export const createOrderReducer = (state = {}, action) => {
       return {
         loading: false,
 
-        orders: action.payload,
+        userOrder: action.payload,
       };
 
     case CREATE_ORDER_FAIL:
@@ -26,6 +35,56 @@ export const createOrderReducer = (state = {}, action) => {
         error: action.payload,
       };
     case CREATE_ORDER_RESET:
+      return {};
+
+    default:
+      return state;
+  }
+};
+
+const initState = {
+  orders: [],
+};
+
+// get all product
+export const userOrderReducer = (state = initState, action) => {
+  switch (action.type) {
+    case GET_ORDER_REQUEST:
+      return {
+        loading: true,
+      };
+    case GET_ORDER_SUCCESS:
+      return {
+        loading: false,
+        orders: action.payload,
+      };
+    case GET_ORDER_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+export const orderDeleteReducer = (state = {}, action) => {
+  switch (action.type) {
+    case GET_ORDER_DELETE_REQUEST:
+      return {
+        loading: true,
+      };
+    case GET_ORDER_DELETE_SUCCESS:
+      return {
+        loading: false,
+        success: action.payload,
+      };
+    case GET_ORDER_DELETE_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    case GET_ORDER_DELETE_RESET:
       return {};
 
     default:

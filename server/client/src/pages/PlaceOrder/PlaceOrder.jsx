@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import { toast } from "react-toastify";
 import { createOrders } from "../../redux/actions/orderActions";
+import { getProductById } from "../../redux/actions/productActions";
 import { CREATE_ORDER_RESET } from "../../redux/constants/orderConstants";
 const PlaceOrder = () => {
   const { currentUser } = useSelector((state) => state?.user);
@@ -17,7 +18,7 @@ const PlaceOrder = () => {
     phone: "",
   });
 
-  const { orders, error } = useSelector((state) => state?.createOrder);
+  const { userOrder, error } = useSelector((state) => state?.createOrder);
 
   // get the all input value update the state
   const handleChangeInput = (e) => {
@@ -40,12 +41,12 @@ const PlaceOrder = () => {
     if (error) {
       dispatch({ type: CREATE_ORDER_RESET });
       toast.error(error);
-    } else if (orders?.message) {
+    } else if (userOrder?.message) {
       dispatch({ type: CREATE_ORDER_RESET });
-      toast.success(orders?.message);
+      toast.success(userOrder?.message);
       // navigate(redirect);
     }
-  }, [orders, error, dispatch]);
+  }, [userOrder, error, dispatch]);
   return (
     <section className="section shipping container-div">
       <h3>Shipping Information</h3>

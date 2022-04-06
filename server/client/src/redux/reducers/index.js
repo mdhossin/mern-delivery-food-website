@@ -1,5 +1,9 @@
 import { combineReducers } from "redux";
-import { createOrderReducer } from "./orderReducer";
+import {
+  createOrderReducer,
+  orderDeleteReducer,
+  userOrderReducer,
+} from "./orderReducer";
 import {
   createProductReducer,
   productByIdReducer,
@@ -14,4 +18,6 @@ export default combineReducers({
   allProducts: productReducer,
   productById: productByIdReducer,
   createOrder: createOrderReducer,
+  userOrders: userOrderReducer,
+  deleteOrder: orderDeleteReducer,
 });
