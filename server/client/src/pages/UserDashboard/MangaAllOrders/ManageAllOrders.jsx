@@ -30,7 +30,10 @@ const ManageAllOrders = () => {
       const data = orders.find((order) => order._id === id);
 
       data.status = "Approved";
-      const res = await axios.put(`/api/orders/${id}`, { ...data });
+      const res = await axios.put(
+        `https://yummy-food-delivery.herokuapp.com/api/orders/${id}`,
+        { ...data }
+      );
       toast.success(res.data.message);
       setCallback(true);
     } catch (err) {
