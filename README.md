@@ -10,4 +10,4 @@
 
 Interface -
 
-![plot](./server/client/src/assets/images/contact-bg.webp)
+![plot](./server/client/src/assets/images/full-project.png)
