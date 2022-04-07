@@ -41,7 +41,6 @@ function App() {
   return (
     <>
       <Header />
-
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -49,16 +48,16 @@ function App() {
           <Route path="register" element={<Register />} />
           <Route path="shop" element={<Shop />} />
           <Route path="products/:productId" element={<ProductDetail />} />
-          <Route path="placeorder/:orderId" element={<PlaceOrder />} />
-
           <Route
-            path="contact"
+            path="placeorder/:orderId"
             element={
               <PrivateRoute>
-                <Contact />
+                <PlaceOrder />
               </PrivateRoute>
             }
           />
+
+          <Route path="contact" element={<Contact />} />
 
           <Route
             path="dashboard"
