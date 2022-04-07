@@ -11,3 +11,7 @@
 Interface -
 
 ![plot](./server/client/src/assets/images/full-project.png)
+
+Dashboard interface -
+
+![plot](./server/client/src/assets/images/dashboard.png)
