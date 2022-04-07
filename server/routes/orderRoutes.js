@@ -8,4 +8,6 @@ router.post("/orders", orderController.createOrder);
 router.get("/orders/:email", orderController.getOrderByEmail);
 router.delete("/orders/:id", orderController.deleteOrder);
 router.get("/orders", orderController.getAllOrders);
+
+router.put("/orders/:id", orderController.updateOrder);
 module.exports = router;

@@ -44,9 +44,9 @@ const Header = () => {
   return (
     <header ref={headerRef} className="header">
       <nav className="nav container-div">
-        <a href="#home" className="nav__logo">
+        <Link to="/" className="nav__logo">
           <img src={logo} alt="Logo" />
-        </a>
+        </Link>
 
         <div className={"nav__menu " + (menuOpen && "show-menu")}>
           <ul className="nav__list nav__menu__list">

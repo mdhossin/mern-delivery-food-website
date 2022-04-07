@@ -81,6 +81,30 @@ const orderController = {
       return res.status(500).json({ message: "Server Eorror." });
     }
   },
+  async updateOrder(req, res) {
+    try {
+      const { displayName, email, country, city, phone, productId, status } =
+        req.body;
+
+      await Order.findOneAndUpdate(
+        { _id: req.params.id },
+        {
+          displayName,
+          email,
+          country,
+          city,
+          phone,
+          productId,
+          status,
+        },
+        { new: true }
+      );
+
+      res.json({ message: "Updated successfull." });
+    } catch (err) {
+      return res.status(500).json({ message: "Server Error." });
+    }
+  },
 };
 
 module.exports = orderController;

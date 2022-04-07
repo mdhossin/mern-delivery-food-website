@@ -1,4 +1,4 @@
-# Mern-Stack Yummy-delivery-food-website using React + Redux + Sass + Node js + express js + Mongodb etc.
+# Mern-Stack Yummy-Food-Delivery-website using React + Redux + Sass + Node js + express js + Mongodb etc.
 
 - Firebase Authentication Register, login with email and password
 - Quick login with google
@@ -6,7 +6,7 @@
 - User can mangae her order, add new product, manage all orders, delete orders
 - Responsive for all devices
 
-# Demo - https://yummy-food-delivery.herokuapp.com/
+# Demo - /
 
 Interface -
 

@@ -5,6 +5,7 @@ import { Table } from "react-bootstrap";
 import Loading from "../../../components/Loading/Loading";
 import { FaTrashAlt } from "react-icons/fa";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 const ManageAllOrders = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,24 @@ const ManageAllOrders = () => {
       dispatch(deleteOrder(id, toast));
     }
     setCallback(true);
+  };
+
+  const handleUpdate = async (id) => {
+    try {
+      setCallback(false);
+      const data = orders.find((order) => order._id === id);
+
+      data.status = "Approved";
+      const res = await axios.put(`/api/orders/${id}`, { ...data });
+      toast.success(res.data.message);
+      setCallback(true);
+    } catch (err) {
+      toast.error(
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message
+      );
+    }
   };
 
   return (
@@ -51,12 +70,23 @@ const ManageAllOrders = () => {
                   <tr key={_id}>
                     <td>#{productId}</td>
                     <td>{displayName}</td>
-                    <td>{status}</td>
+                    <td>
+                      <button
+                        style={{
+                          padding: "0.3rem 1rem",
+                          background: "rgb(239,239,239)",
+                        }}
+                        disabled={status === "Approved" ? true : false}
+                        onClick={() => handleUpdate(_id)}
+                      >
+                        {status}
+                      </button>
+                    </td>
                     <td title="Remove">
                       {" "}
                       <FaTrashAlt
                         onClick={() => deleteHandler(_id)}
-                        style={{ color: "rgb(165, 5, 29)" }}
+                        style={{ color: "rgb(165, 5, 29)", cursor: "pointer" }}
                       />
                     </td>
                   </tr>

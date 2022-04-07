@@ -57,12 +57,14 @@ const MyOrders = () => {
                   <tr key={_id}>
                     <td>#{productId}</td>
                     <td>{displayName}</td>
-                    <td>{status}</td>
+                    <td>
+                      <button>{status}</button>
+                    </td>
                     <td title="Remove">
                       {" "}
                       <FaTrashAlt
                         onClick={() => deleteHandler(_id)}
-                        style={{ color: "rgb(165, 5, 29)" }}
+                        style={{ color: "rgb(165, 5, 29)", cursor: "pointer" }}
                       />
                     </td>
                   </tr>
