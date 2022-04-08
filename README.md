@@ -6,7 +6,7 @@
 - User can mangae her order, add new product, manage all orders, delete orders
 - Responsive for all devices
 
-# Demo - /
+# Demo - (https://yummy-food-delivery.herokuapp.com/)
 
 Interface -
 
